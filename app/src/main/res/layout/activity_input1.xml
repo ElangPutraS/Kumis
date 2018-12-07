@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
+    android:padding="@dimen/padding"
     tools:context="id.ac.uii.a16523169students.kumis.Input1Activity">
 
     <TextView
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/riwayat"
         android:layout_below="@+id/textView"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/marginatas"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Keluhan"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/keluhan"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="@dimen/marginatas"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Riwayat"
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/riwayat"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="@dimen/marginatas"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Alergi"
