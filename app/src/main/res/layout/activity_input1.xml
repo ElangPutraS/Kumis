@@ -27,7 +27,6 @@
         android:layout_below="@+id/textView"
         android:layout_marginTop="@dimen/marginatas"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Keluhan"
         android:text="" />
 
@@ -39,7 +38,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/marginatas"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Riwayat"
         android:text="" />
 
