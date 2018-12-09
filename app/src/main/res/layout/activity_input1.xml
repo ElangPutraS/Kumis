@@ -13,113 +13,126 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:text="INPUT KELUHAN PASIEN"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="10pt"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/keluhan"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/riwayat"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="@dimen/marginatas"
-        android:ems="10"
-        android:hint="Keluhan"
-        android:text="" />
+        android:layout_below="@id/textView"
+        android:layout_marginTop="20dp">
 
-    <EditText
-        android:id="@+id/riwayat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/keluhan"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/marginatas"
-        android:ems="10"
-        android:hint="Riwayat"
-        android:text="" />
-
-    <EditText
-        android:id="@+id/alergi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/riwayat"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/marginatas"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Alergi"
-        android:text="" />
-
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/alergi"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal">
-        <RadioButton
-            android:id="@+id/rbLaki"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Laki - Laki" />
-        <RadioButton
-            android:id="@+id/rbPerempuan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Perempuan" />
-    </RadioGroup>
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvBB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/alergi"
-        android:text="Berat Badan dan Tinggi Badan"
-        android:textColor="@android:color/black"
-        android:layout_marginTop="70dp"
-        android:textSize="8pt"
-        android:textStyle="bold" />
+            <EditText
+                android:id="@+id/keluhan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/riwayat"
+                android:layout_below="@+id/textView"
+                android:layout_marginTop="@dimen/marginatas"
+                android:ems="10"
+                android:hint="Keluhan"
+                android:text="" />
 
-    <EditText
-        android:id="@+id/berat_badan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvBB"
-        android:layout_marginTop="@dimen/EditTextBBTB"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Berat Badan"
-        android:text="" />
+            <EditText
+                android:id="@+id/riwayat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/keluhan"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/marginatas"
+                android:ems="10"
+                android:hint="Riwayat"
+                android:text="" />
 
-    <EditText
-        android:id="@+id/tinggi_badan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/berat_badan"
-        android:layout_marginTop="@dimen/EditTextBBTB"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Tinggi Badan"
-        android:text="" />
+            <EditText
+                android:id="@+id/alergi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/riwayat"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/marginatas"
+                android:ems="10"
+                android:hint="Alergi"
+                android:text="" />
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="216dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tinggi_badan"
-        android:layout_marginTop="20dp"
-        android:text="Submit" />
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alergi"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/rbLaki"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Laki - Laki" />
+                <RadioButton
+                    android:id="@+id/rbPerempuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perempuan" />
+            </RadioGroup>
 
-    <TextView
-        android:id="@+id/tv_tubuh_ideal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/submit"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:textSize="7pt"
-        android:text="" />
+            <TextView
+                android:id="@+id/tvBB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alergi"
+                android:layout_marginTop="20dp"
+                android:text=" Berat Badan dan Tinggi Badan"
+                android:textColor="@android:color/black"
+                android:textSize="8pt"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/berat_badan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvBB"
+                android:layout_marginTop="@dimen/EditTextBBTB"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Berat Badan"
+                android:text="" />
+
+            <EditText
+                android:id="@+id/tinggi_badan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/berat_badan"
+                android:layout_marginTop="@dimen/EditTextBBTB"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Tinggi Badan"
+                android:text="" />
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="216dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tinggi_badan"
+                android:layout_marginTop="20dp"
+                android:text="Submit" />
+
+            <TextView
+                android:id="@+id/tv_tubuh_ideal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/submit"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textSize="7pt"
+                android:text="" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
