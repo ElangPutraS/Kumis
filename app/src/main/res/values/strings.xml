@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Kumis</string>
+    <string name="logo_here">LOGO HERE</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login_btn">Login</string>
+    <string name="or">Atau</string>
+    <string name="subtitle_login">Gizi Anda adalah Prioritas Kami</string>
+    <string name="buat_akun">Buat Akun</string>
+    <string name="belum_punya_akun">Belum Punya Akun ?</string>
+    <string name="sudah_punya_akun">Sudah Punya Akun ?</string>
+    <string name="masuk_akun">Masuk Akun</string>
 </resources>
