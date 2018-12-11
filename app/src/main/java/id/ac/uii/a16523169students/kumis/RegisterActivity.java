@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -17,6 +18,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+import static android.text.TextUtils.isEmpty;
+
 public class RegisterActivity extends Activity {
     EditText name,username,email,password,cPassword;
     private String apiPath = "https://kumisproject.000webhostapp.com/RestController.php?view=store";
@@ -25,6 +28,7 @@ public class RegisterActivity extends Activity {
     private boolean resultBool;
     private int success = 0;
     String response = "";
+    private Toast toast;
     HashMap<String, String> postDataParams;
 
     @Override
@@ -46,7 +50,21 @@ public class RegisterActivity extends Activity {
     }
 
     public void RegisterUser(View view) throws JSONException {
-        new ServiceStubAsyncTask(this, this).execute();
+        if(name.getText().toString().equals("")||username.getText().toString().equals("")||
+                email.getText().toString().equals("")||password.getText().toString().equals("")||
+                cPassword.getText().toString().equals("")){
+            toast = Toast.makeText(this,"Mohon mengisi semua kolom yang telah disediakan",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
+            toast.show();
+        }
+        else if (password.getText().toString().equals(cPassword.getText().toString())){
+            new ServiceStubAsyncTask(this, this).execute();
+        } else {
+            toast = Toast.makeText(this,"Password tidak cocok, mohon dicek kembali",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
+            toast.show();
+        }
+
     }
 
     private class ServiceStubAsyncTask extends AsyncTask<Void, Void, Void> {
@@ -66,7 +84,7 @@ public class RegisterActivity extends Activity {
             super.onPreExecute();
 
             processDialog = new ProgressDialog(mContext);
-            processDialog.setMessage("Please  Wait ...");
+            processDialog.setMessage("Sedang Memproses ...");
             processDialog.setCancelable(false);
             processDialog.show();
         }
@@ -77,7 +95,6 @@ public class RegisterActivity extends Activity {
             String mUsername = username.getText().toString();
             String mEmail = email.getText().toString();
             String mPass = password.getText().toString();
-            String mCPass = cPassword.getText().toString();
 
             postDataParams = new HashMap<String, String>();
             postDataParams.put("HTTP_ACCEPT", "application/json");
@@ -89,7 +106,6 @@ public class RegisterActivity extends Activity {
                 success = 1;
                 JSONObject resultJsonObject = new JSONObject(response);
                 resultBool = resultJsonObject.getJSONObject("output").getBoolean("acknowledge");
-                System.out.println("INIIII : "+ resultBool);
             } catch (JSONException e) {
                 success = 0;
                 e.printStackTrace();
@@ -101,15 +117,23 @@ public class RegisterActivity extends Activity {
         protected void onPostExecute(Void result) {
 
             super.onPostExecute(result);
+            if (resultBool) {
+                toast = Toast.makeText(mContext,"Registrasi Berhasil, Silahkan coba untuk login",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
+                toast.show();
 
+                name.setText("");
+                username.setText("");
+                email.setText("");
+                password.setText("");
+                cPassword.setText("");
+            } else {
+                toast = Toast.makeText(mContext,"Registrasi Gagal",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
+                toast.show();
+            }
             if (processDialog.isShowing()) {
                 processDialog.dismiss();
-            }
-
-            if (resultBool) {
-                Toast.makeText(mContext,"Registrasi Berhasil",Toast.LENGTH_LONG);
-            } else {
-                Toast.makeText(mContext,"Registrasi Gagal",Toast.LENGTH_LONG);
             }
         }
 
