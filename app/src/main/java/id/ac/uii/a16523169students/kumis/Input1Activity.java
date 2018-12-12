@@ -101,4 +101,9 @@ public class Input1Activity extends AppCompatActivity implements View.OnClickLis
         this.getSharedPreferences(PREFS_NAME,MODE_PRIVATE).edit().clear().commit();
 
     }
+
+    public void keEdit(View view) {
+        Intent intent = new Intent(this, EditProfileActivity.class);
+        startActivity(intent);
+    }
 }
