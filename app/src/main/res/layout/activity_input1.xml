@@ -138,6 +138,13 @@
                 android:layout_height="wrap_content"
                 android:text="Sign Out" />
 
+            <Button
+                android:id="@+id/konsultasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="konsultasiHandler"
+                android:text="Button" />
+
         </LinearLayout>
     </ScrollView>
 

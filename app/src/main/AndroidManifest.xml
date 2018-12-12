@@ -6,11 +6,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/geasy"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:logo="@drawable/geasy"
+        android:roundIcon="@drawable/geasy"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/GeasyStyle">
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".Input1Activity"
             android:label="Activity Input"
@@ -27,7 +28,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="id.ac.uii.a16523169students.kumis.MainActivity" />
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".KonsultasiActivity"></activity>
+        <activity android:name=".RegisterSSOActivity"></activity>
     </application>
 
 </manifest>
