@@ -122,6 +122,7 @@ public class HttpConnectionService {
             return "";
         }
 
+
         return result.toString();
     }
 }
