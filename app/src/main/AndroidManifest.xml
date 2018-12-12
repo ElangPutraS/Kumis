@@ -28,7 +28,8 @@
                 android:value="id.ac.uii.a16523169students.kumis.MainActivity" />
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".CekSehatActivity"></activity>
     </application>
 
 </manifest>
