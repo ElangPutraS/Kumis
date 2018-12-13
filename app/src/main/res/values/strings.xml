@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kumis</string>
+    <string name="app_name">Geasy</string>
     <string name="logo_here">LOGO HERE</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
@@ -26,4 +26,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit_profile">EDIT PROFILE</string>
+    <string name="faktanya">Rekomendasi dosis vitamin C setiap harinya untuk pria adalah 90 mg dan untuk wanita adalah 75 mg. Khusus untuk perokok membutuhkan dosis tambahan sebanyak 35 mg.</string>
 </resources>
