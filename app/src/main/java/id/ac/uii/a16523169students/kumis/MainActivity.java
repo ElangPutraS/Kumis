@@ -88,7 +88,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         if (username != null) {
             finish();
-            Intent intent = new Intent(this, Input1Activity.class);
+            Intent intent = new Intent(this, NavbarHome.class);
             startActivity(intent);
         } else {
             // Check for existing Google Sign In account, if the user is already signed in
@@ -102,7 +102,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void updateUI(GoogleSignInAccount account) {
         if(account != null){
             finish();
-            Intent intent = new Intent(this, Input1Activity.class);
+            Intent intent = new Intent(this, NavbarHome.class);
             startActivity(intent);
         }
     }
@@ -244,7 +244,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             if (resultBool) {
                 finish();
-                Intent intent = new Intent(mContext, Input1Activity.class);
+                Intent intent = new Intent(mContext, NavbarHome.class);
                 startActivity(intent);
             } else {
                 if(login.equals("sso")){
