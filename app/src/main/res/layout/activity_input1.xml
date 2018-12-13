@@ -152,7 +152,36 @@
                 android:textSize="7pt"
                 android:text="" />
 
+            <Button
+                android:id="@+id/button_sign_out"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign Out" />
+
+            <Button
+                android:id="@+id/konsultasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="konsultasiHandler"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="48dp"
+                android:layout_marginEnd="94dp"
+                android:onClick="keEdit"
+                android:text="EDIT" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="CekKesehatan"
+                android:text="Button" />
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>

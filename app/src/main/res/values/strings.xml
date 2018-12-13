@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kumis</string>
+    <string name="app_name">Geasy</string>
     <string name="logo_here">LOGO HERE</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "864956655800",
+    "firebase_url": "https://kumis-225009.firebaseio.com",
+    "project_id": "kumis-225009",
+    "storage_bucket": "kumis-225009.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864956655800:android:09be3fa9aeaf5f91",
+        "android_client_info": {
+          "package_name": "id.ac.uii.a16523169students.kumis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864956655800-a2egrid73km16ckc1abl3gimrisnorui.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.ac.uii.a16523169students.kumis",
+            "certificate_hash": "6ed3ef34dcad166f054f72f796339188c86905d8"
+          }
+        },
+        {
+          "client_id": "864956655800-k789jbus82tromfcmia42uvpl7hpe9i5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFbJZaXmjH_BHLaCP-SUmKe73w9zFqNOY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864956655800-k789jbus82tromfcmia42uvpl7hpe9i5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

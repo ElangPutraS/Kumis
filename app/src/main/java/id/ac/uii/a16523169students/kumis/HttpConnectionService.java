@@ -32,8 +32,8 @@ public class HttpConnectionService {
             url = new URL(path);
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("connection", "close");//Jellybean is having an issue on "Keep-Alive" connections
-            conn.setReadTimeout(15000);
-            conn.setConnectTimeout(15000);
+            conn.setReadTimeout(20000);
+            conn.setConnectTimeout(20000);
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
