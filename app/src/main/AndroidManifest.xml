@@ -29,9 +29,6 @@
                 android:value="id.ac.uii.a16523169students.kumis.MainActivity" />
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity
-            android:name=".fragmentHome"
-            android:label="@string/title_activity_home"></activity>
         <activity android:name=".KonsultasiActivity"></activity>
         <activity android:name=".RegisterSSOActivity"></activity>
         <activity android:name=".EditProfileActivity" />
