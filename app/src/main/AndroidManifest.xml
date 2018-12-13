@@ -29,10 +29,10 @@
                 android:value="id.ac.uii.a16523169students.kumis.MainActivity" />
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".KonsultasiActivity"></activity>
-        <activity android:name=".RegisterSSOActivity"></activity>
+        <activity android:name=".KonsultasiActivity" />
+        <activity android:name=".RegisterSSOActivity" />
         <activity android:name=".EditProfileActivity" />
-        <activity android:name=".CekSehatActivity"></activity>
+        <activity android:name=".CekSehatActivity" />
     </application>
 
 </manifest>
