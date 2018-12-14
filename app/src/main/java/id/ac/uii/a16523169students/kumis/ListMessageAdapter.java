@@ -4,14 +4,19 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.amulyakhare.textdrawable.TextDrawable;
 
 public class ListMessageAdapter extends ArrayAdapter<ChatMessage> {
 
@@ -78,7 +83,12 @@ public class ListMessageAdapter extends ArrayAdapter<ChatMessage> {
             // check to see if each individual textview is null.
             // if not, assign some text!
             if (mText != null){
-                mText.setText(i.getMessageText());
+                if(i.getMessageText().length() > 70){
+                    mText.setText(i.getMessageText().substring(0,70)+"...");
+                }
+                else {
+                    mText.setText(i.getMessageText());
+                }
             }
             if (mTime != null){
                 mTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
@@ -86,6 +96,14 @@ public class ListMessageAdapter extends ArrayAdapter<ChatMessage> {
             }
             if (mUser != null){
                 mUser.setText(i.getMessageUser());
+
+                Random rnd = new Random();
+                int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+                TextDrawable drawable = TextDrawable.builder()
+                        .buildRound(String.valueOf(i.getMessageUser().toString().charAt(0)), color);
+
+                ImageView image = (ImageView) v.findViewById(R.id.image_view);
+                image.setImageDrawable(drawable);
             }
         }
 

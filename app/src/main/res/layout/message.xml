@@ -23,15 +23,30 @@
             android:id="@+id/message_time"
             android:textStyle="normal|bold"/>
     </LinearLayout>
-    <TextView
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:textSize="18sp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/message_user"
-        android:layout_alignParentEnd="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:id="@+id/message_text"
-        android:textStyle="normal|bold"/>
+        android:orientation="horizontal"
+        android:weightSum="1.0">
+
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pUser"/>
+
+        <TextView
+            android:id="@+id/message_text"
+            android:layout_width="268dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pDokter"/>
+    </LinearLayout>
 
 </LinearLayout>

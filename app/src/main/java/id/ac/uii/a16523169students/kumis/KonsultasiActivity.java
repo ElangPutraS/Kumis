@@ -2,6 +2,7 @@ package id.ac.uii.a16523169students.kumis;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +10,12 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amulyakhare.textdrawable.TextDrawable;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
@@ -23,6 +26,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+
+import java.util.Random;
 
 public class KonsultasiActivity extends AppCompatActivity {
     public static int SIGN_IN_REQUEST_CODE = 1;
@@ -126,6 +131,18 @@ public class KonsultasiActivity extends AppCompatActivity {
                 // Set their text
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
+                System.out.println("INI :"+model.getMessageUser());
+                int color = String.valueOf(model.getMessageUser().toString().charAt(0)).equals("D") ?
+                        Color.rgb(85,85,85) : Color.argb(255,50,199,135);
+                TextDrawable drawable = TextDrawable.builder()
+                        .beginConfig()
+                        .width(80)  // width in px
+                        .height(80) // height in px
+                        .endConfig()
+                        .buildRound(String.valueOf(model.getMessageUser().toString().charAt(0)), color );
+
+                ImageView image = (ImageView) v.findViewById(R.id.pUser);
+                image.setImageDrawable(drawable);
 
                 // Format the date before showing it
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",

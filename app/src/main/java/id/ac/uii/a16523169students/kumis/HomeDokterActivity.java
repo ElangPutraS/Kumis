@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class HomeDokterActivity extends AppCompatActivity {
+public class HomeDokterActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     public static int SIGN_IN_REQUEST_CODE = 1;
     private FirebaseListAdapter<ChatMessage> adapter;
     public static final String PREFS_NAME = "MyPrefsFile";
@@ -40,6 +41,7 @@ public class HomeDokterActivity extends AppCompatActivity {
     private ListMessageAdapter m_adapter;
     private TextView emptylist;
     private DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("chats");
+    private SwipeRefreshLayout pullToRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +53,22 @@ public class HomeDokterActivity extends AppCompatActivity {
         listOfMessages = (ListView) findViewById(R.id.list_of_chats);
         mUsername = username;
 
+        pullToRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_home_dokter);
+        pullToRefreshLayout.setOnRefreshListener(this);
+
         emptylist = (TextView) findViewById(R.id.emptylist);
         emptylist.setVisibility(View.INVISIBLE);
 
         m_adapter = new ListMessageAdapter(HomeDokterActivity.this, R.layout.messagelist, m_parts);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         // display the list.
-        listOfMessages.setAdapter(m_adapter);
+        listOfMessages.setAdapter(null);
+        m_parts.clear();
         // here we are defining our runnable thread.
         viewParts = new Runnable(){
             public void run(){
@@ -138,5 +149,30 @@ public class HomeDokterActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+    }
+
+    @Override
+    public void onRefresh() {
+        // display the list.
+        listOfMessages.setAdapter(null);
+        m_parts.clear();
+        // here we are defining our runnable thread.
+        viewParts = new Runnable(){
+            public void run(){
+                handler.sendEmptyMessage(0);
+            }
+        };
+
+        // here we call the thread we just defined - it is sent to the handler below.
+        Thread thread =  new Thread(null, viewParts, "MagentoBackground");
+        thread.start();
+        System.out.println("KEREFRESHHH");
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pullToRefreshLayout.setRefreshing(false);
+            }
+        }, 2000);
     }
 }

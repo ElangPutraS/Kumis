@@ -37,6 +37,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private static final String PREF_EMAIL = "email";
     private static final String PREF_USERNAME = "username";
     private static final String PREF_ROLE = "role";
+    private static final String PREF_PASSWORD = "password";
 
     TextView alert;
 
@@ -225,6 +226,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     mName = resultJsonObject.getJSONObject("output").getString("nama");
                     mEmail = resultJsonObject.getJSONObject("output").getString("email");
                     mRole = resultJsonObject.getJSONObject("output").getString("role");
+                    mPass = resultJsonObject.getJSONObject("output").getString("password");
 
                     getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
                             .edit()
@@ -232,6 +234,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                             .putString(PREF_EMAIL, mEmail)
                             .putString(PREF_USERNAME, mUsername)
                             .putString(PREF_ROLE, mRole)
+                            .putString(PREF_PASSWORD, mPass)
                             .commit();
                 }
             } catch (JSONException e) {
