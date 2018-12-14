@@ -5,16 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class CekSehatActivity extends AppCompatActivity {
+public class RiwayatPenyakitActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cek_sehat);
+        setContentView(R.layout.activity_riwayat_penyakit);
     }
 
-    public void cekDiabetes(View view) {
-        Intent intent = new Intent(this, KeluhanActivity.class);
+    public void onCheckboxRiwayat(View view) {
+    }
+
+    public void nextPageRiwayat(View view) {
+        Intent intent = new Intent(this, BBTBActivity.class);
         startActivity(intent);
     }
 }
