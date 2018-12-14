@@ -33,7 +33,10 @@
         <activity android:name=".RegisterSSOActivity" />
         <activity android:name=".EditProfileActivity" />
         <activity android:name=".CekSehatActivity" />
-        <activity android:name=".HomeDokterActivity"></activity>
+        <activity android:name=".HomeDokterActivity" />
+        <activity android:name=".BBTBActivity" />
+        <activity android:name=".KeluhanActivity" />
+        <activity android:name=".RiwayatPenyakitActivity"></activity>
     </application>
 
 </manifest>
