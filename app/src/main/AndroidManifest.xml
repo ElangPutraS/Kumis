@@ -36,7 +36,8 @@
         <activity android:name=".HomeDokterActivity" />
         <activity android:name=".BBTBActivity" />
         <activity android:name=".KeluhanActivity" />
-        <activity android:name=".RiwayatPenyakitActivity"></activity>
+        <activity android:name=".RiwayatPenyakitActivity" />
+        <activity android:name=".AlergiActivity"></activity>
     </application>
 
 </manifest>

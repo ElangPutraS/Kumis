@@ -75,7 +75,7 @@ public class KeluhanActivity extends AppCompatActivity {
 
 
     public void nextPage(View view) {
-        Intent intent = new Intent (this, RiwayatPenyakitActivity.class);
+        Intent intent = new Intent (this, AlergiActivity.class);
         startActivity(intent);
     }
 }
