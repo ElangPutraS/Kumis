@@ -21,6 +21,13 @@ public class ChatMessage {
         messageTime = new Date().getTime();
     }
 
+    public ChatMessage(String messageText, String messageUser, Long messageTime) {
+        this.messageText = messageText;
+        this.messageUser = messageUser;
+        // Initialize to current time
+        this.messageTime = messageTime;
+    }
+
     public ChatMessage(){
 
     }

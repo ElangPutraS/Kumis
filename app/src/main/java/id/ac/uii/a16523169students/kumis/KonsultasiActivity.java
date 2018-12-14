@@ -29,16 +29,22 @@ public class KonsultasiActivity extends AppCompatActivity {
     private FirebaseListAdapter<ChatMessage> adapter;
     public static final String PREFS_NAME = "MyPrefsFile";
     private static final String PREF_USERNAME = "username";
-    private String mUsername;
+    private static final String PREF_ROLE = "role";
+    private static final String PREF_SENDER = "sender";
+    private String mUsername, mSender;
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_konsultasi);
 
-        SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+        pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
         final String username = pref.getString(PREF_USERNAME, null);
+        final String sender = pref.getString(PREF_SENDER, null);
+        final String role = pref.getString(PREF_ROLE, null);
         mUsername = username;
+        mSender = sender;
 
         System.out.println("USERNAME : " + mUsername);
 
@@ -52,17 +58,29 @@ public class KonsultasiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 EditText input = (EditText)findViewById(R.id.input);
 
-                // Read the input field and push a new instance
-                // of ChatMessage to the Firebase database
-                FirebaseDatabase.getInstance()
-                        .getReference()
-                        .child("chats")
-                        .push()
-                        .setValue(new ChatMessage(input.getText().toString(),
-                                username, "Dokter", username+"_Dokter")
-                        );
+                if(!input.getText().toString().equals("")){
+                    if (role.equals("1")){
+                        FirebaseDatabase.getInstance()
+                                .getReference()
+                                .child("chats")
+                                .child(username)
+                                .push()
+                                .setValue(new ChatMessage(input.getText().toString(),
+                                        username, "Dokter", username+"_Dokter")
+                                );
+                    }
+                    else if (role.equals("2")){
+                        FirebaseDatabase.getInstance()
+                                .getReference()
+                                .child("chats")
+                                .child(sender)
+                                .push()
+                                .setValue(new ChatMessage(input.getText().toString(),
+                                        "Dokter", sender, sender+"_Dokter")
+                                );
+                    }
+                }
 
-                // Clear the input
                 input.setText("");
             }
         });
@@ -71,21 +89,26 @@ public class KonsultasiActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        Toast.makeText(this,
-                "Successfully signed in. Welcome!",
-                Toast.LENGTH_LONG)
-                .show();
         displayChatMessages();
 
 
     }
     private void displayChatMessages() {
         ListView listOfMessages = (ListView)findViewById(R.id.list_of_messages);
+        final String role = pref.getString(PREF_ROLE, null);
 
-        Query query = FirebaseDatabase.getInstance().getReference().child("chats")
-                .orderByChild("messageHistory")
-                .equalTo(mUsername+"_Dokter");
+        Query query = null;
+
+        if (role.equals("1")) {
+            query = FirebaseDatabase.getInstance().getReference().child("chats").child(mUsername)
+                    .orderByChild("messageHistory")
+                    .equalTo(mUsername+"_Dokter");
+        } else if (role.equals("2")) {
+            query = FirebaseDatabase.getInstance().getReference().child("chats").child(mSender)
+                    .orderByChild("messageHistory")
+                    .equalTo(mSender+"_Dokter");
+        }
+
 //The error said the constructor expected FirebaseListOptions - here you create them:
         FirebaseListOptions<ChatMessage> options = new FirebaseListOptions.Builder<ChatMessage>()
                 .setQuery(query, ChatMessage.class)
@@ -109,8 +132,10 @@ public class KonsultasiActivity extends AppCompatActivity {
                         model.getMessageTime()));
             }
         };
+
         adapter.startListening();
         listOfMessages.setAdapter(adapter);
+
     }
 
     @Override
