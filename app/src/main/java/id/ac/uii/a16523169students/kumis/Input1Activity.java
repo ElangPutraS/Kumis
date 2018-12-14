@@ -111,4 +111,9 @@ public class Input1Activity extends AppCompatActivity implements View.OnClickLis
         Intent intent = new Intent(this, CekSehatActivity.class);
         startActivity(intent);
     }
+
+    public void konsultasiHandler(View view) {
+        Intent intent = new Intent(this, KonsultasiActivity.class);
+        startActivity(intent);
+    }
 }

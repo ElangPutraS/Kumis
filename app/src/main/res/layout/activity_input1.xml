@@ -153,12 +153,6 @@
                 android:text="" />
 
             <Button
-                android:id="@+id/button_sign_out"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sign Out" />
-
-            <Button
                 android:id="@+id/konsultasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,7 +174,7 @@
                 android:id="@+id/button5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="CekKesehatan"
+                android:onClick="keCekSehat"
                 android:text="Button" />
         </LinearLayout>
     </ScrollView>
