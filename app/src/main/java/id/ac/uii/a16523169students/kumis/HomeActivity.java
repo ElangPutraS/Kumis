@@ -1,6 +1,8 @@
 package id.ac.uii.a16523169students.kumis;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -16,13 +18,37 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public static final String PREFS_NAME = "MyPrefsFile";
+    private static final String PREF_NAME = "name";
+    private static final String PREF_EMAIL = "email";
+    private static final String PREF_USERNAME = "username";
+    private static final String PREF_ROLE = "role";
+    private static final String PREF_PASSWORD = "password";
+
+
+    //googlesignin
+    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //get google
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        // Build a GoogleSignInClient with the options specified by gso.
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,7 +82,7 @@ public class HomeActivity extends AppCompatActivity
         // Use PagerAdapterNav to manage page views in fragments.
         // Each page is represented by its own fragment.
         // This is another example of the adapter pattern.
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pagerNavbar);
         final PagerAdapterNav adapter = new PagerAdapterNav
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
@@ -126,6 +152,16 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.nav_gizi) {
 
         }  else if (id == R.id.nav_logout) {
+            mGoogleSignInClient.signOut()
+                    .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            finish();
+                            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+            this.getSharedPreferences(PREFS_NAME,MODE_PRIVATE).edit().clear().commit();
 
         }
 

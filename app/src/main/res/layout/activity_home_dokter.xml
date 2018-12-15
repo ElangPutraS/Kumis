@@ -9,27 +9,30 @@
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     android:paddingTop="18dp"
+    android:background="@android:color/white"
     tools:context=".HomeDokterActivity">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@id/fab"
-        android:divider="#555555"
-        android:id="@+id/list_of_chats"
-        android:dividerHeight="1dp"
-        android:drawSelectorOnTop="true"
-        android:layout_margin="0dp"
-        android:padding="0dp"
-        android:layout_alignParentBottom="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="124dp"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@id/fab"
+            android:divider="#555555"
+            android:id="@+id/list_of_chats"
+            android:dividerHeight="1dp"
+            android:drawSelectorOnTop="true"
+            android:layout_margin="0dp"
+            android:padding="0dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="124dp"/>
 
-    <TextView
-        android:id="@+id/emptylist"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:text="No items to display."/>
+        <TextView
+            android:id="@+id/emptylist"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="No items to display."/>
+
+
 </android.support.v4.widget.SwipeRefreshLayout>
