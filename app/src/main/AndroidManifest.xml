@@ -31,8 +31,13 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".KonsultasiActivity" />
         <activity android:name=".RegisterSSOActivity" />
-        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".EditProfileActivity" android:label="Edit Profile"/>
         <activity android:name=".CekSehatActivity" />
+        <activity android:name=".HomeDokterActivity" />
+        <activity android:name=".BBTBActivity" />
+        <activity android:name=".KeluhanActivity" />
+        <activity android:name=".RiwayatPenyakitActivity" />
+        <activity android:name=".AlergiActivity"></activity>
         <activity android:name=".HomeActivity" />
     </application>
 

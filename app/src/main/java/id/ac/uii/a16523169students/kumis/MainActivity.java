@@ -37,6 +37,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private static final String PREF_EMAIL = "email";
     private static final String PREF_USERNAME = "username";
     private static final String PREF_ROLE = "role";
+    private static final String PREF_PASSWORD = "password";
 
     TextView alert;
 
@@ -46,6 +47,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private EditText username, pass;
     private boolean resultBool = false;
     private int success = 0;
+    String mName, mEmail, mUsername = "", mPass = "", mRole, api = "";
     private String email = "";
     int RC_SIGN_IN;
 
@@ -85,11 +87,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
         String username = pref.getString(PREF_USERNAME, null);
+        String role = pref.getString(PREF_ROLE, null);
 
         if (username != null) {
-            finish();
-            Intent intent = new Intent(this, Input1Activity.class);
-            startActivity(intent);
+            if (role.equals("1")) {
+                finish();
+                Intent intent = new Intent(this, Input1Activity.class);
+                startActivity(intent);
+            }
+            else if (role.equals("2")) {
+                finish();
+                Intent intent = new Intent(this, HomeDokterActivity.class);
+                startActivity(intent);
+            }
         } else {
             // Check for existing Google Sign In account, if the user is already signed in
             // the GoogleSignInAccount will be non-null.
@@ -194,7 +204,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             postDataParams = new HashMap<String, String>();
             postDataParams.put("HTTP_ACCEPT", "application/json");
 
-            String mName, mEmail, mUsername = "", mPass = "", mRole, api = "";
 
             HttpConnectionService service = new HttpConnectionService();
 
@@ -217,6 +226,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     mName = resultJsonObject.getJSONObject("output").getString("nama");
                     mEmail = resultJsonObject.getJSONObject("output").getString("email");
                     mRole = resultJsonObject.getJSONObject("output").getString("role");
+                    mPass = resultJsonObject.getJSONObject("output").getString("password");
 
                     getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
                             .edit()
@@ -224,6 +234,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                             .putString(PREF_EMAIL, mEmail)
                             .putString(PREF_USERNAME, mUsername)
                             .putString(PREF_ROLE, mRole)
+                            .putString(PREF_PASSWORD, mPass)
                             .commit();
                 }
             } catch (JSONException e) {
@@ -243,9 +254,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
 
             if (resultBool) {
-                finish();
-                Intent intent = new Intent(mContext, HomeActivity.class);
-                startActivity(intent);
+                if (mRole.equals("1")) {
+                    finish();
+                    Intent intent = new Intent(mContext, HomeActivity.class);
+                    startActivity(intent);
+                }
+                else if (mRole.equals("2")) {
+                    finish();
+                    Intent intent = new Intent(mContext, HomeDokterActivity.class);
+                    startActivity(intent);
+                }
             } else {
                 if(login.equals("sso")){
                     Intent intent = new Intent(mContext, RegisterSSOActivity.class);

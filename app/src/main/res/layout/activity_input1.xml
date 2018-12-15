@@ -122,6 +122,33 @@
                 android:layout_marginTop="20dp"
                 android:text="Submit" />
 
+            <Button
+                android:id="@+id/editprof"
+                android:layout_width="216dp"
+                android:layout_height="wrap_content"
+                android:onClick="keEdit"
+                android:text="EDIT" />
+
+            <Button
+                android:id="@+id/ceksehat"
+                android:layout_width="216dp"
+                android:layout_height="wrap_content"
+                android:onClick="keCekSehat"
+                android:text="Cek Kesehatan" />
+
+            <Button
+                android:id="@+id/konsultasi"
+                android:layout_width="216dp"
+                android:layout_height="wrap_content"
+                android:onClick="konsultasiHandler"
+                android:text="Konsultasi" />
+
+            <Button
+                android:id="@+id/button_sign_out"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign Out" />
+
             <TextView
                 android:id="@+id/tv_tubuh_ideal"
                 android:layout_width="wrap_content"
@@ -132,38 +159,6 @@
                 android:textSize="7pt"
                 android:text="" />
 
-            <Button
-                android:id="@+id/button_sign_out"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sign Out" />
-
-            <Button
-                android:id="@+id/konsultasi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="konsultasiHandler"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="48dp"
-                android:layout_marginEnd="94dp"
-                android:onClick="keEdit"
-                android:text="EDIT" />
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="CekKesehatan"
-                android:text="Button" />
-
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>

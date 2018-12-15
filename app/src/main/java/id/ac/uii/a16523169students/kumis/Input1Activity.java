@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -103,18 +102,18 @@ public class Input1Activity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    public void konsultasiHandler(View view) {
-        Intent intent = new Intent(Input1Activity.this, KonsultasiActivity.class);
-        startActivity(intent);
-    }
-
     public void keEdit(View view) {
         Intent intent = new Intent(this, EditProfileActivity.class);
         startActivity(intent);
     }
 
-    public void CekKesehatan(View view) {
+    public void keCekSehat(View view) {
         Intent intent = new Intent(this, CekSehatActivity.class);
+        startActivity(intent);
+    }
+
+    public void konsultasiHandler(View view) {
+        Intent intent = new Intent(this, KonsultasiActivity.class);
         startActivity(intent);
     }
 }

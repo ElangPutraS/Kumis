@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
     android:orientation="vertical">
 
     <LinearLayout
@@ -14,39 +14,37 @@
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="wrap_content"
-            android:id="@+id/message_user"
+            android:id="@+id/mUser"
+            android:textSize="18sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textStyle="normal|bold"/>
         <TextView
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="wrap_content"
-            android:id="@+id/message_time"
+            android:id="@+id/mTime"
             android:textStyle="normal|bold"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="1.0">
+        android:weightSum="1.0"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="2dp">
 
-        <ImageView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/pUser"/>
+        <ImageView android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/image_view"/>
 
         <TextView
-            android:id="@+id/message_text"
-            android:layout_width="268dp"
+            android:id="@+id/mText"
+            android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="18sp"
+            android:layout_weight="0.5"
             android:textStyle="normal|bold" />
-
-        <ImageView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/pDokter"/>
     </LinearLayout>
 
 </LinearLayout>

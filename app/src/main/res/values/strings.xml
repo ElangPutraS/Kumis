@@ -11,7 +11,6 @@
     <string name="sudah_punya_akun">Sudah Punya Akun ?</string>
     <string name="masuk_akun">Masuk Akun</string>
     <string name="geasy">GEasy</string>
-
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
@@ -35,4 +34,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="edit_profile">EDIT PROFILE</string>
     <string name="faktanya">Rekomendasi dosis vitamin C setiap harinya untuk pria adalah 90 mg dan untuk wanita adalah 75 mg. Khusus untuk perokok membutuhkan dosis tambahan sebanyak 35 mg.</string>
+    <string name="keluhan_4">Lambat-penyembuhan luka atau infeksi dan \nsering terjadi</string>
+    <string name="keluhan_8">Bangun di malam hari untuk buang air kecil \n(nocturia) dan mengompol</string>
 </resources>
