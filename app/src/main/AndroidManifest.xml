@@ -38,6 +38,7 @@
         <activity android:name=".KeluhanActivity" />
         <activity android:name=".RiwayatPenyakitActivity" />
         <activity android:name=".AlergiActivity"></activity>
+        <activity android:name=".HomeActivity" />
     </application>
 
 </manifest>
