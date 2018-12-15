@@ -92,7 +92,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (username != null) {
             if (role.equals("1")) {
                 finish();
-                Intent intent = new Intent(this, Input1Activity.class);
+                Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
             }
             else if (role.equals("2")) {
@@ -112,7 +112,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void updateUI(GoogleSignInAccount account) {
         if(account != null){
             finish();
-            Intent intent = new Intent(this, Input1Activity.class);
+            Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         }
     }

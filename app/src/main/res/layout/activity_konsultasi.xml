@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="18dp"
+    android:background="@android:color/white"
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     android:paddingTop="18dp"
@@ -15,8 +16,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:src="@drawable/ic_send_black_24dp"
-        android:id="@+id/fab"
+        app:srcCompat="@drawable/ic_send_black_24dp"
+        android:id="@+id/fab_konsul"
         android:tint="@android:color/white"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
@@ -24,14 +25,18 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:id="@+id/textinput"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/fab"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:background="@android:color/white"
+        >
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             android:hint="Input"
             android:id="@+id/input"
             />
@@ -42,7 +47,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@id/fab"
+        android:layout_above="@id/textinput"
         android:dividerHeight="16dp"
         android:divider="@android:color/transparent"
         android:id="@+id/list_of_messages"

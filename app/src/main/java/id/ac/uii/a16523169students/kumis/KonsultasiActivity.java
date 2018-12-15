@@ -56,7 +56,7 @@ public class KonsultasiActivity extends AppCompatActivity {
         displayChatMessages();
 //        displayChatMessages();
         FloatingActionButton fab =
-                (FloatingActionButton)findViewById(R.id.fab);
+                (FloatingActionButton)findViewById(R.id.fab_konsul);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

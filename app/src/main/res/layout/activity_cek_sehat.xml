@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp"
     android:layout_gravity="center"
+    android:layout_margin="8dp"
+    android:background="@android:color/white"
+    android:padding="0dp"
     card_view:cardCornerRadius="4dp">
 
     <android.support.constraint.ConstraintLayout
@@ -19,14 +21,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="92dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="244dp"
             android:text="FACT :"
+            android:textColor="@android:color/black"
             android:textSize="10pt"
             android:textStyle="bold"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.064"
+            card_view:layout_constraintHorizontal_bias="0.084"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 
@@ -34,48 +35,61 @@
             android:id="@+id/random_fact"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/judul_fakta"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="128dp"
-            android:layout_marginEnd="8dp"
+            android:layout_below="@id/judul_fakta"
+            android:layout_marginTop="8dp"
             android:text="@string/faktanya"
+            android:textColor="@android:color/black"
             android:textSize="7pt"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.574"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
+            card_view:layout_constraintTop_toBottomOf="@+id/judul_fakta" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/random_fact"
+            android:layout_height="28dp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="396dp"
+            android:layout_below="@id/random_fact"
             android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="76dp"
             android:text="Cek Indikasi Penyakit Diabetes Anda"
+            android:textColor="@android:color/black"
             android:textSize="7pt"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.504"
+            card_view:layout_constraintHorizontal_bias="0.496"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
+            card_view:layout_constraintTop_toBottomOf="@+id/random_fact" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textView9"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="124dp"
-            android:layout_marginTop="424dp"
+            android:layout_below="@id/textView9"
             android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:onClick="cekDiabetes"
             android:text="Cek Sekarang"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.072"
+            card_view:layout_constraintHorizontal_bias="0.498"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
+            card_view:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="44dp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.497"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:srcCompat="@drawable/ic_sentiment_satisfied_black_24dp" />
 
 
     </android.support.constraint.ConstraintLayout>
