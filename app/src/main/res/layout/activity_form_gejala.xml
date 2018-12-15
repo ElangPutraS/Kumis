@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FormGejalaActivity">
+
+        <TextView
+            android:id="@+id/cekGiziForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Cek Gizi"
+            android:textColor="@android:color/black"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- -->
+        <TextView
+            android:id="@+id/gejalaPen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Isilah form gejala di bawah ini untuk mengetahui \nindikasi penyakit Anda"
+            android:textColor="@android:color/black"
+            android:textSize="8pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cekGiziForm" />
+
+        <!-- Panas Badan -->
+        <TextView
+            android:id="@+id/suhu_badan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="1. Seberapa Tinggi Peningkatan Suhu Badan \nAnda?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.142"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gejalaPen" />
+
+        <RadioGroup
+            android:id="@+id/radioPanas"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/suhu_badan">
+
+            <RadioButton
+                android:id="@+id/radioPanas1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Rendah"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioPanas2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Sedang"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioPanas3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Tinggi"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <!-- Mual Muntah -->
+        <TextView
+            android:id="@+id/mual_muntah"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="2. Frekuensi Anda Merasakan Mual?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.066"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioPanas" />
+
+        <RadioGroup
+            android:id="@+id/radioMual"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mual_muntah">
+
+            <RadioButton
+                android:id="@+id/radioMual1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Jarang"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioMual2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Sering"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <!-- Volume Tinja -->
+        <TextView
+            android:id="@+id/volume_tinja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="3. Bagaimana Volume Feses saat Buang Air \nBesar?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.135"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioMual" />
+
+        <RadioGroup
+            android:id="@+id/radioVolume"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/volume_tinja">
+
+            <RadioButton
+                android:id="@+id/radioVolume1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Sedikit"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioVolume2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Sedang"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioVolume3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Banyak"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <!-- Frekuensi Tinja -->
+        <TextView
+            android:id="@+id/frek_tinja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="4. Seberapa Sering Anda Buang Air Besar \ndalam Sehari?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.101"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioVolume" />
+
+        <RadioGroup
+            android:id="@+id/radioFrek"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frek_tinja">
+
+            <RadioButton
+                android:id="@+id/radioFrek1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="3-5 kali/hari"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioFrek2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="5-10 kali/hari"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioFrek3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text=">10 kali/hari"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <!-- Konsistensi Tinja -->
+        <TextView
+            android:id="@+id/kons_tinja"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="5. Bagaimana konsistensi feses saat Buang Air Besar?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioFrek" />
+
+        <RadioGroup
+            android:id="@+id/radioKons"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kons_tinja">
+
+            <RadioButton
+                android:id="@+id/radioKons1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Normal"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioKons2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Lembek"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioKons3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Cair"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <!-- Bau Tinja -->
+        <TextView
+            android:id="@+id/bau_tinja"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="6. Bagaimana bau feses saat Buang Air Besar?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioKons" />
+
+        <RadioGroup
+            android:id="@+id/radioBau"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bau_tinja">
+
+            <RadioButton
+                android:id="@+id/radioBau1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Langu"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioBau2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Busuk"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioBau3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Amis Khas"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <!-- Warna Tinja -->
+        <TextView
+            android:id="@+id/warna_tinja"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="7. Bagaimana warna feses saat Buang Air \nBesar?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioBau" />
+
+        <RadioGroup
+            android:id="@+id/radioWarna"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/warna_tinja">
+
+            <RadioButton
+                android:id="@+id/radioWarna1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Kuning-Hijau"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioWarna2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Merah-Hijau"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioWarna3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Kehijauan"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioWarna4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Putih Pekat"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <!-- Darah Tinja -->
+        <TextView
+            android:id="@+id/darah_tinja"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="8. Apakah saat Buang Air Besar mengeluarkan darah?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioWarna" />
+
+        <RadioGroup
+            android:id="@+id/radioDarah"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/darah_tinja">
+
+            <RadioButton
+                android:id="@+id/radioDarah1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Ya"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioDarah2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Tidak"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <!-- Lain lain -->
+        <TextView
+            android:id="@+id/lain_lain"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="9. Gejala lain-lain"
+            android:textColor="@android:color/black"
+            android:textSize="8pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioDarah" />
+
+        <RadioGroup
+            android:id="@+id/radioLain"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lain_lain">
+
+            <RadioButton
+                android:id="@+id/radioLain1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Anoreksia"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioLain2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Kejang"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioLain3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Sepsis"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioLain4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Meteorismus"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioLain5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Infeksi"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/buttonGejala"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="nextPageGejala"
+            android:text="NEXT"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioLain"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
