@@ -244,7 +244,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             if (resultBool) {
                 finish();
-                Intent intent = new Intent(mContext, Input1Activity.class);
+                Intent intent = new Intent(mContext, HomeActivity.class);
                 startActivity(intent);
             } else {
                 if(login.equals("sso")){
