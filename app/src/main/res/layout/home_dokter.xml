@@ -20,10 +20,23 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <include
-            layout="@layout/activity_home_dokter"
+        <ViewFlipper
+            android:id="@+id/vf_dokter"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" >
+            <include
+                layout="@layout/activity_home_dokter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <include
+                layout="@layout/activity_form_gejala"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <include
+                layout="@layout/activity_edit_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </ViewFlipper>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.NavigationView

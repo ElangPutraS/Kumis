@@ -1,9 +1,12 @@
 package id.ac.uii.a16523169students.kumis;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,16 +18,20 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.app.ListActivity;
+import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -40,9 +47,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HomeDokterActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, NavigationView.OnNavigationItemSelectedListener {
+    private String apiPath = "https://kumisproject.000webhostapp.com/RestController.php?view=update";
+    private JSONArray resultJsonArray;
+    private boolean resultBool = false;
+    private int success = 0;
+    private ProgressDialog processDialog;
+    private Toast toast;
+
     public static int SIGN_IN_REQUEST_CODE = 1;
     private FirebaseListAdapter<ChatMessage> adapter;
     public static final String PREFS_NAME = "MyPrefsFile";
@@ -63,8 +82,12 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
     private DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("chats");
     private SwipeRefreshLayout pullToRefreshLayout;
 
+    private String mUser, eNama, eEmail, ePass, eCPass;
+    private EditText editUser, editNama, editEmail, editPass, confPass;
     //textview
     private TextView tNama, tEmail;
+    //viewflipper
+    private ViewFlipper vf;
 
     //googlesignin
     private GoogleSignInClient mGoogleSignInClient;
@@ -74,6 +97,10 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_dokter);
 
+        editNama = (EditText) findViewById(R.id.edit_nama);
+        editEmail = (EditText) findViewById(R.id.edit_email);
+        editPass = (EditText) findViewById(R.id.edit_pass);
+        confPass = (EditText) findViewById(R.id.conf_pass);
         //get google
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -97,6 +124,11 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
         //ambil view lain
         View nav_header = navigationView.inflateHeaderView(R.layout.nav_header_home);
 
+        //viewflipper
+        vf = (ViewFlipper)findViewById(R.id.vf_dokter);
+
+        vf.setDisplayedChild(0);
+
         //set profpic
         int color = Color.rgb(85,85,85);
         TextDrawable drawable = TextDrawable.builder()
@@ -111,6 +143,15 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
         final String email = pref.getString(PREF_EMAIL, null);
         final String nama = pref.getString(PREF_NAME, null);
 
+        editEmail.setText(email);
+        editNama.setText(nama);
+        mUser = username;
+
+        TextDrawable edrawable = TextDrawable.builder()
+                .buildRound("D", color );
+
+        ImageView eimage = (ImageView) findViewById(R.id.avatar);
+        eimage.setImageDrawable(edrawable);
         //listview
         listOfMessages = (ListView) findViewById(R.id.list_of_chats);
         mUsername = username;
@@ -251,7 +292,11 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if(vf.getDisplayedChild()!=0){
+                vf.setDisplayedChild(0);
+            } else{
+                super.onBackPressed();
+            }
         }
     }
 
@@ -284,9 +329,9 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-            // Handle the camera action
+            vf.setDisplayedChild(2);
         } else if (id == R.id.nav_sistem) {
-
+            vf.setDisplayedChild(1);
         }  else if (id == R.id.nav_logout) {
             mGoogleSignInClient.signOut()
                     .addOnCompleteListener(this, new OnCompleteListener<Void>() {
@@ -304,4 +349,103 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void editProfile(View view) {
+        eNama = editNama.getText().toString();
+        eEmail = editEmail.getText().toString();
+        ePass = editPass.getText().toString();
+        eCPass = confPass.getText().toString();
+
+        if(!ePass.equals(eCPass)){
+            Toast toast = Toast.makeText(this,"Password tidak cocok, mohon cek kembali",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
+            toast.show();
+        }
+        else if (eNama.equals("") || eEmail.equals("") || ePass.equals("") || eCPass.equals("")){
+            Toast toast = Toast.makeText(this,"Mohon melengkapi semua kolom yang ada",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
+            toast.show();
+        }
+        else{
+            new ServiceStubAsyncTask(this, this).execute();
+        }
+
+    }
+
+    private class ServiceStubAsyncTask extends AsyncTask<Void, Void, Void> {
+
+        private Context mContext;
+        private Activity mActivity;
+        String response = "";
+        HashMap<String, String> postDataParams;
+
+        public ServiceStubAsyncTask(Context context, Activity activity) {
+            mContext = context;
+            mActivity = activity;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            processDialog = new ProgressDialog(mContext);
+            processDialog.setMessage("Sedang Memproses ...");
+            processDialog.setCancelable(false);
+            processDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            postDataParams = new HashMap<String, String>();
+            postDataParams.put("HTTP_ACCEPT", "application/json");
+
+            HttpConnectionService service = new HttpConnectionService();
+            String api = apiPath+"&nama="+eNama+"&username="+mUser+"&email="+eEmail+"&password="+ePass;
+            response = service.sendRequest(api, postDataParams);
+            try {
+                success = 1;
+                JSONObject resultJsonObject = new JSONObject(response);
+                resultBool = resultJsonObject.getJSONObject("output").getBoolean("acknowledge");
+            } catch (JSONException e) {
+                success = 0;
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            super.onPostExecute(result);
+            if (resultBool) {
+                toast = Toast.makeText(mContext,"Edit profile berhasil, mengalihkan ke halaman awal...",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
+                toast.show();
+
+                getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+                        .edit()
+                        .putString(PREF_NAME, eNama)
+                        .putString(PREF_EMAIL, eEmail)
+                        .commit();
+
+                editNama.setText(eNama);
+                editEmail.setText(eEmail);
+                editPass.setText("");
+                confPass.setText("");
+
+                tNama.setText(eNama);
+                tEmail.setText(eEmail);
+
+                vf.setDisplayedChild(0);
+            } else {
+                toast = Toast.makeText(mContext,"Edit profile gagal",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
+                toast.show();
+            }
+            if (processDialog.isShowing()) {
+                processDialog.dismiss();
+            }
+        }
+
+    }//end of async task
 }
