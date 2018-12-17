@@ -473,6 +473,44 @@
                 android:textSize="18sp" />
         </RadioGroup>
 
+        <!-- Dehidrasi -->
+        <TextView
+            android:id="@+id/dehidrasi"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="10. Mana gejala berikut yang Anda alami?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt" />
+
+        <RadioGroup
+            android:id="@+id/radioDehidrasi"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioDehidrasi1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@android:color/black"
+                android:text="Letangi"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioDehidrasi2"
+                android:buttonTint="@android:color/black"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Minum Banyak"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+        </RadioGroup>
+
         <Button
             android:id="@+id/buttonGejala"
             android:layout_width="match_parent"

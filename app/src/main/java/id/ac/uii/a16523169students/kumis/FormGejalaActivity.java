@@ -68,6 +68,10 @@ public class FormGejalaActivity extends AppCompatActivity {
 //        Intent intent = new Intent(this, KeluhanActivity.class);
 //        startActivity(intent);
     }
+    public void keRevisi(View view) {
+        Intent intent = new Intent(this, RevisiActivity.class);
+        startActivity(intent);
+    }
 
     private class ServiceStubAsyncTask extends AsyncTask<Void, Void, Void> {
 
