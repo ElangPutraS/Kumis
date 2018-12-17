@@ -36,4 +36,22 @@
     <string name="faktanya">Rekomendasi dosis vitamin C setiap harinya untuk pria adalah 90 mg dan untuk wanita adalah 75 mg. Khusus untuk perokok membutuhkan dosis tambahan sebanyak 35 mg.</string>
     <string name="keluhan_4">Lambat-penyembuhan luka atau infeksi dan \nsering terjadi</string>
     <string name="keluhan_8">Bangun di malam hari untuk buang air kecil \n(nocturia) dan mengompol</string>
+
+
+    <array name="sports_images">
+        <item>@drawable/img_baseball</item>
+        <item>@drawable/img_badminton</item>
+        <item>@drawable/img_basketball</item>
+    </array>
+    <string-array name="sports_titles">
+        <item>Baseball</item>
+        <item>Badminton</item>
+        <item>Basketball</item>
+    </string-array>
+    <string-array name="sports_info">
+        <item>Here is some Baseball news!</item>
+        <item>Here is some Badminton news!</item>
+        <item>Here is some Basketball news!</item>
+    </string-array>
+
 </resources>
