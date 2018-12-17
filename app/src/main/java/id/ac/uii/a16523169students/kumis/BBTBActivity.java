@@ -1,5 +1,6 @@
 package id.ac.uii.a16523169students.kumis;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,5 +20,7 @@ public class BBTBActivity extends AppCompatActivity {
     }
 
     public void submitData(View view) {
+        Intent intent = new Intent(this, HasilActivity.class);
+        startActivity(intent);
     }
 }

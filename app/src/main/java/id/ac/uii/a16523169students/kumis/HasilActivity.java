@@ -5,16 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class CekSehatActivity extends AppCompatActivity {
+public class HasilActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cek_sehat);
+        setContentView(R.layout.activity_hasil);
     }
 
-    public void cekDiabetes(View view) {
-        Intent intent = new Intent(this, KeluhanActivity.class);
+    public void balikHalaman(View view) {
+        Intent intent = new Intent(this, CekSehatActivity.class);
         startActivity(intent);
     }
 }

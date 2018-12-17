@@ -38,7 +38,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:onClick="onCheckboxClicked"
-        android:text="Penurunan berat badan yang tidak diinginkan" />
+        android:text="Gangguan penglihatan" />
 
     <CheckBox
         android:id="@+id/keluhan2"
@@ -48,7 +48,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:onClick="onCheckboxClicked"
-        android:text="Penglihatan kabur" />
+        android:text="Kehilangan nafsu makan" />
 
     <CheckBox
         android:id="@+id/keluhan3"
@@ -58,7 +58,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:onClick="onCheckboxClicked"
-        android:text="Meningkatnya rasa lapar." />
+        android:text="Infeksi mulut" />
 
     <CheckBox
         android:id="@+id/keluhan4"
@@ -68,7 +68,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:onClick="onCheckboxClicked"
-        android:text="@string/keluhan_4" />
+        android:text="Gangguan pencernaan" />
 
     <CheckBox
         android:id="@+id/keluhan5"
@@ -78,7 +78,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:onClick="onCheckboxClicked"
-        android:text="Sering buang air kecil" />
+        android:text="Anemia" />
 
     <CheckBox
         android:id="@+id/keluhan6"
@@ -98,7 +98,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:onClick="onCheckboxClicked"
-        android:text="Ekskresi jumlah urin encer yang berlebihan" />
+        android:text="Kesemutan di kaki dan tangan" />
 
     <CheckBox
         android:id="@+id/keluhan8"
@@ -108,7 +108,37 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:onClick="onCheckboxClicked"
-        android:text="@string/keluhan_8" />
+        android:text="Kulit memar" />
+
+    <CheckBox
+        android:id="@+id/keluhan9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:onClick="onCheckboxClicked"
+        android:text="Luka sembuh perlahan" />
+
+    <CheckBox
+        android:id="@+id/keluhan10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:onClick="onCheckboxClicked"
+        android:text="Masalah sistem kekebalan" />
+
+    <CheckBox
+        android:id="@+id/keluhan11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:onClick="onCheckboxClicked"
+        android:text="Pendarahan" />
 
     <Button
         android:id="@+id/button5"

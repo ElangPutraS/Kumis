@@ -48,7 +48,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:onClick="onCheckboxClickedAlergi"
-            android:text="Telur(Putih Telur)" />
+            android:text="Susu, Keju, Mengtega" />
 
         <CheckBox
             android:id="@+id/alergi2"
@@ -58,7 +58,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:onClick="onCheckboxClickedAlergi"
-            android:text="Susu" />
+            android:text="Biji - bijian" />
 
         <CheckBox
             android:id="@+id/alergi3"
@@ -68,7 +68,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:onClick="onCheckboxClickedAlergi"
-            android:text="Kacang Tanah" />
+            android:text="Telur" />
 
         <CheckBox
             android:id="@+id/alergi4"
@@ -78,7 +78,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:onClick="onCheckboxClickedAlergi"
-            android:text="Kacang Pohon" />
+            android:text="Daging dan Unggas" />
 
         <CheckBox
             android:id="@+id/alergi5"
@@ -88,7 +88,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:onClick="onCheckboxClickedAlergi"
-            android:text="Sering buang air kecil" />
+            android:text="Ikan" />
 
         <CheckBox
             android:id="@+id/alergi6"
@@ -98,7 +98,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:onClick="onCheckboxClickedAlergi"
-            android:text="Kelelahan" />
+            android:text="Sayur - sayuran" />
 
         <CheckBox
             android:id="@+id/alergi7"
@@ -108,7 +108,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:onClick="onCheckboxClickedAlergi"
-            android:text="Ikan, cumi -cumian" />
+            android:text="Produk Fermentasi(Kecap, Tauco, Tempe, dan Tape)" />
 
         <CheckBox
             android:id="@+id/alergi8"
@@ -118,7 +118,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:onClick="onCheckboxClickedAlergi"
-            android:text="Kerang - Kerangan(bercangkang)" />
+            android:text="Jeruk, Stroberry, dan Tomat." />
 
         <CheckBox
             android:id="@+id/alergi9"
@@ -128,7 +128,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:onClick="onCheckboxClickedAlergi"
-            android:text="Gandum" />
+            android:text="Ikan Lele, Salmon, Sarden, Tuna, Hati Sapi" />
 
         <CheckBox
             android:id="@+id/alergi10"
@@ -138,7 +138,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:onClick="onCheckboxClickedAlergi"
-            android:text="Kedelai" />
+            android:text="Alpukat, Kacan Almond, Gandum, Kecambah" />
 
         <CheckBox
             android:id="@+id/alergi11"
@@ -148,57 +148,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:onClick="onCheckboxClickedAlergi"
-            android:text="Tepung Terigu" />
-
-        <CheckBox
-            android:id="@+id/alergi12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:onClick="onCheckboxClickedAlergi"
-            android:text="Buah(Apel, Kiwi, alpukat, stroberi)" />
-
-        <CheckBox
-            android:id="@+id/alergi13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:onClick="onCheckboxClickedAlergi"
-            android:text="Daging" />
-
-        <CheckBox
-            android:id="@+id/alergi14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:onClick="onCheckboxClickedAlergi"
-            android:text="Ketumbar, Bawang putih, merah" />
-
-        <CheckBox
-            android:id="@+id/alergi15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:onClick="onCheckboxClickedAlergi"
-            android:text="Pengawet Makanan" />
-
-        <CheckBox
-            android:id="@+id/alergi16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:onClick="onCheckboxClickedAlergi"
-            android:text="Pewarna makanan sintetis" />
+            android:text="Hati dan Yogurth" />
 
         <Button
             android:id="@+id/buttonAlergi"
