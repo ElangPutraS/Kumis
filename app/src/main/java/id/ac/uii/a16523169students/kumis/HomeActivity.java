@@ -455,7 +455,7 @@ public class HomeActivity extends AppCompatActivity
     }//end of async task
 
     public void cekDiabetes(View view) {
-        Intent intent = new Intent(this, KeluhanActivity.class);
+        Intent intent = new Intent(this, FormGejalaActivity.class);
         startActivity(intent);
     }
 }
