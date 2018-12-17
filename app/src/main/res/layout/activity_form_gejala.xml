@@ -481,7 +481,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:text="10. Mana gejala berikut yang Anda alami?"
+            android:text="10. Apakah anda mengalami penurunan kesadaran beberapa waktu ini?"
             android:textColor="@android:color/black"
             android:textSize="8pt" />
 
@@ -497,7 +497,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:buttonTint="@android:color/black"
-                android:text="Letangi"
+                android:text="Ya"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
@@ -506,7 +506,127 @@
                 android:buttonTint="@android:color/black"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Minum Banyak"
+                android:text="Tidak"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/dehidrasiLagi"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="11. Apakah anda merasa mata anda cekung belakangan ini?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt" />
+
+        <RadioGroup
+            android:id="@+id/radioDehidrasiLagi"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioDehidrasi3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@android:color/black"
+                android:text="Ya"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioDehidrasi4"
+                android:buttonTint="@android:color/black"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Tidak"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/dehidrasiManeh"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="12. Apakah anda merasa merasa haus setiap saat?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt" />
+
+        <RadioGroup
+            android:id="@+id/radioDehidrasiManeh"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioDehidrasi5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@android:color/black"
+                android:text="Ya"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioDehidrasi6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@android:color/black"
+                android:text="Normal"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioDehidrasi7"
+                android:buttonTint="@android:color/black"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Tidak"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/dehidrasiAgain"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="13. Apakah bekas cubitan terasa lebih lama untuk pulih dari biasanya?"
+            android:textColor="@android:color/black"
+            android:textSize="8pt" />
+
+        <RadioGroup
+            android:id="@+id/radioDehidrasiAgain"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioDehidrasi8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@android:color/black"
+                android:text="Ya"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioDehidrasi9"
+                android:buttonTint="@android:color/black"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Tidak"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
         </RadioGroup>

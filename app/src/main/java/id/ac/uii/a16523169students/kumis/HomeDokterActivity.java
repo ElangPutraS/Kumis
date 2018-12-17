@@ -28,6 +28,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.app.ListActivity;
 import android.widget.Toast;
@@ -449,8 +450,16 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
 
     }//end of async task
 
-    public void nextPageGejala(View view) {
+    /*public void nextPageGejala(View view) {
         Intent intent = new Intent(this, HasilPakarActivity.class);
         startActivity(intent);
-    }
+
+        int selectedId = radioGroup1.getCheckedRadioButtonId();
+
+        // find the radiobutton by returned id
+        radioDehidrasiBtn = (RadioButton) findViewById(selectedId);
+
+        Toast.makeText(FormGejalaActivity.this,
+                radioDehidrasiBtn.getText(), Toast.LENGTH_SHORT).show();
+    }*/
 }
