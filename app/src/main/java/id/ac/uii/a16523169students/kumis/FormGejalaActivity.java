@@ -13,8 +13,8 @@ public class FormGejalaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_form_gejala);
     }
 
-    public void nextPageGejala(View view) {
-        Intent intent = new Intent(this, KeluhanActivity.class);
+    public void keRevisi(View view) {
+        Intent intent = new Intent(this, RevisiActivity.class);
         startActivity(intent);
     }
 }

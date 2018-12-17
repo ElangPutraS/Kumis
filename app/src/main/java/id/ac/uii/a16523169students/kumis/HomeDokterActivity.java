@@ -448,4 +448,9 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
         }
 
     }//end of async task
+
+    public void nextPageGejala(View view) {
+        Intent intent = new Intent(this, HasilPakarActivity.class);
+        startActivity(intent);
+    }
 }

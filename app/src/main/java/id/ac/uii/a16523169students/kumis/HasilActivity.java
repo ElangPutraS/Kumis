@@ -14,7 +14,7 @@ public class HasilActivity extends AppCompatActivity {
     }
 
     public void balikHalaman(View view) {
-        Intent intent = new Intent(this, CekSehatActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 }
