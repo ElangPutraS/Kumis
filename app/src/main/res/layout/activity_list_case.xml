@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_list_case"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="18dp"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    android:paddingTop="18dp"
+    android:background="@android:color/white"
+    tools:context=".ListCaseActivity">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:divider="#555555"
+        android:id="@+id/list_of_cases"
+        android:dividerHeight="1dp"
+        android:drawSelectorOnTop="true"
+        android:layout_margin="0dp"
+        android:padding="0dp"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="124dp"/>
+
+    <TextView
+        android:id="@+id/emptylistt"
+        android:textColor="@android:color/darker_gray"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="No items to display."/>
+
+
+</android.support.v4.widget.SwipeRefreshLayout>

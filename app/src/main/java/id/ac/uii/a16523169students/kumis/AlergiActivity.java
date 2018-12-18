@@ -101,8 +101,8 @@ public class AlergiActivity extends AppCompatActivity {
     }
 
     public void keRiwayat(View view) {
-        /*Intent intent = new Intent(this, RiwayatPenyakitActivity.class);
-        startActivity(intent);*/
+        Intent intent = new Intent(this, BBTBActivity.class);
+        startActivity(intent);
 
         System.out.println(alergi);
         alergi = "Anda Tidak Direkomendasikan Mengonsumsi : ";
