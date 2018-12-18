@@ -74,6 +74,20 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
     private ListView listOfMessages;
     private String mUsername;
 
+    //CBR
+    private String apiPathCBR = "https://kumisproject.000webhostapp.com/RestController.php?view=tabelCBR";
+    private JSONArray resultJsonArrayCBR;
+    private boolean resultBoolCBR = false;
+    private int successCBR = 0;
+    private ArrayList<Cases> m_partsCBR = new ArrayList<Cases>();
+    private JSONObject resultJsonObjectCBR;
+
+    private Runnable viewPartsCBR;
+    private ListCaseAdapter m_adapterCBR;
+    private TextView emptlist;
+    private ListView listOfCases;
+    private SwipeRefreshLayout pullToRefreshLayoutCBR;
+
     // declare class variables
     private ArrayList<ChatMessage> m_parts = new ArrayList<ChatMessage>();
     private Runnable viewParts;
@@ -171,6 +185,20 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
 
         tNama.setText(nama);
         tEmail.setText(email);
+
+        //Keperluan CBR
+
+        //listview
+        listOfCases = (ListView) findViewById(R.id.list_of_cases);
+
+        //refresh layout
+        pullToRefreshLayoutCBR = (SwipeRefreshLayout) findViewById(R.id.activity_list_case);
+        pullToRefreshLayoutCBR.setOnRefreshListener(this);
+
+        emptlist = (TextView) findViewById(R.id.emptylistt);
+        emptlist.setVisibility(View.INVISIBLE);
+
+        m_adapterCBR = new ListCaseAdapter(this, R.layout.caselist, m_partsCBR);
     }
 
     @Override
@@ -190,6 +218,8 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
         // here we call the thread we just defined - it is sent to the handler below.
         Thread thread =  new Thread(null, viewParts, "MagentoBackground");
         thread.start();
+
+        new ServiceCBRAsyncTask(this, this).execute();
     }
 
     @Override
@@ -282,6 +312,16 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
             @Override
             public void run() {
                 pullToRefreshLayout.setRefreshing(false);
+            }
+        }, 2000);
+
+        //CBR
+        listOfCases.setAdapter(null);
+        new ServiceCBRAsyncTask(this, this).execute();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pullToRefreshLayoutCBR.setRefreshing(false);
             }
         }, 2000);
     }
@@ -453,4 +493,113 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
         Intent intent = new Intent(this, HasilPakarActivity.class);
         startActivity(intent);
     }
+
+    private Handler handlerCBR = new Handler()
+    {
+        public void handleMessage(Message msg)
+        {
+            try {
+                System.out.println("IKILOHHHH : "+resultJsonArrayCBR.length() + " " + resultJsonArrayCBR.get(0));
+                int bGejala = 0, idKasus = 0;
+                String ket = "", penyebab = "";
+
+                for (int i = 0 ; i < resultJsonArrayCBR.length(); i++){
+                    JSONObject objTabel = resultJsonArrayCBR.getJSONObject(i);
+                    bGejala = 0;
+                    System.out.println("Data ke-"+i);
+                    for(int j = 1; j <= 28; j++ ){
+                        String tmp = "G"+j;
+                        if(objTabel.getInt(tmp) > 0){
+                            bGejala += 1;
+                        }
+                    }
+                    ket = objTabel.getString("Keterangan");
+                    penyebab = objTabel.getString("Penyebab");
+                    idKasus = objTabel.getInt("id");
+
+                    m_partsCBR.add(new Cases(bGejala, ket, penyebab, idKasus));
+                    System.out.println("ININAHH ANJAYYYY "+bGejala+" "+ket+" "+penyebab);
+                }
+                m_adapterCBR = new ListCaseAdapter(HomeDokterActivity.this, R.layout.caselist, m_partsCBR);
+                if (m_adapterCBR == null)
+                    emptlist.setVisibility(View.VISIBLE);
+                else
+                    listOfCases.setAdapter(m_adapterCBR);
+                // display the list.
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            listOfCases.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    Intent i = new Intent(HomeDokterActivity.this, DetailCaseActivity.class);
+                    TextView idKasus = (TextView) view.findViewById(R.id.idKasus);
+                    String idcase = idKasus.getText().toString();
+                    System.out.println("IKIIII : "+idcase.substring(12,idcase.length()));
+                    i.putExtra("ID_KASUS", Integer.parseInt(idcase.substring(12,idcase.length())));
+                    startActivity(i);
+                }
+            });
+        }
+    };
+
+    private class ServiceCBRAsyncTask extends AsyncTask<Void, Void, Void> {
+
+        private Context mContext;
+        private Activity mActivity;
+        String response = "";
+        HashMap<String, String> postDataParams;
+
+        public ServiceCBRAsyncTask(Context context, Activity activity) {
+            mContext = context;
+            mActivity = activity;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            postDataParams = new HashMap<String, String>();
+            postDataParams.put("HTTP_ACCEPT", "application/json");
+
+
+            HttpConnectionService service = new HttpConnectionService();
+            response = service.sendRequest(apiPathCBR, postDataParams);
+
+            try {
+                successCBR = 1;
+                resultJsonObjectCBR = new JSONObject(response);
+                resultJsonArrayCBR = resultJsonObjectCBR.getJSONArray("output");
+
+                m_partsCBR.clear();
+                // here we are defining our runnable thread.
+                viewPartsCBR = new Runnable(){
+                    public void run(){
+                        handlerCBR.sendEmptyMessage(0);
+                    }
+                };
+
+                // here we call the thread we just defined - it is sent to the handler below.
+                Thread thread =  new Thread(null, viewPartsCBR, "MagentoBackground");
+                thread.start();
+            } catch (JSONException e) {
+                successCBR = 0;
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            super.onPostExecute(result);
+
+        }
+
+    }//end of async task
 }

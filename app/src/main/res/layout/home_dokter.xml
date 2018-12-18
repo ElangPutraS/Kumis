@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <include
-                layout="@layout/activity_form_gejala"
+                layout="@layout/activity_list_case"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <include

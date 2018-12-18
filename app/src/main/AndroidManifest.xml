@@ -44,7 +44,9 @@
         <activity android:name=".FormGejalaActivity" />
         <activity android:name=".HasilActivity" />
         <activity android:name=".HasilPakarActivity" />
-        <activity android:name=".RevisiActivity"></activity>
+        <activity android:name=".RevisiActivity" />
+        <activity android:name=".ListCaseActivity" />
+        <activity android:name=".DetailCaseActivity" android:label="Input Bobot"></activity>
     </application>
 
 </manifest>
