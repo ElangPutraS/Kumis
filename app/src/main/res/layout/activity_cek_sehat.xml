@@ -65,7 +65,7 @@
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@id/textView9"
@@ -74,6 +74,8 @@
             android:layout_marginTop="8dp"
             android:onClick="cekDiabetes"
             android:text="Cek Sekarang"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_button"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.498"
             card_view:layout_constraintStart_toStartOf="parent"

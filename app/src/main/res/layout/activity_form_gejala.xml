@@ -482,11 +482,11 @@
 
             <TextView
                 android:id="@+id/dehidrasi"
-                android:layout_width="384dp"
+                android:layout_width="355dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
                 android:text="10. Apakah anda mengalami penurunan kesadaran beberapa waktu ini?"
                 android:textColor="@android:color/black"
                 android:textSize="8pt" />
@@ -498,7 +498,6 @@
                 android:buttonTint="@android:color/black"
                 android:text="Ya"
                 android:textColor="@android:color/black"
-                android:onClick="onCheckboxClickedDehidrasi"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -508,12 +507,19 @@
                 android:layout_height="wrap_content"
                 android:text="Tidak"
                 android:textColor="@android:color/black"
-                android:onClick="onCheckboxClickedDehidrasi"
                 android:textSize="18sp" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioDehidrasiLagi"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/dehidrasiLagi"
-                android:layout_width="384dp"
+                android:layout_width="355dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
@@ -529,7 +535,6 @@
                 android:buttonTint="@android:color/black"
                 android:text="Ya"
                 android:textColor="@android:color/black"
-                android:onClick="onCheckboxClickedDehidrasi"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -539,12 +544,19 @@
                 android:layout_height="wrap_content"
                 android:text="Tidak"
                 android:textColor="@android:color/black"
-                android:onClick="onCheckboxClickedDehidrasi"
                 android:textSize="18sp" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioDehidrasiManeh"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/dehidrasiManeh"
-                android:layout_width="384dp"
+                android:layout_width="355dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
@@ -560,7 +572,6 @@
                 android:buttonTint="@android:color/black"
                 android:text="Ya"
                 android:textColor="@android:color/black"
-                android:onClick="onCheckboxClickedDehidrasi"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -570,7 +581,6 @@
                 android:buttonTint="@android:color/black"
                 android:text="Normal"
                 android:textColor="@android:color/black"
-                android:onClick="onCheckboxClickedDehidrasi"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -580,12 +590,19 @@
                 android:layout_height="wrap_content"
                 android:text="Tidak"
                 android:textColor="@android:color/black"
-                android:onClick="onCheckboxClickedDehidrasi"
                 android:textSize="18sp" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioDehidrasiAgain"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/dehidrasiAgain"
-                android:layout_width="384dp"
+                android:layout_width="355dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
@@ -601,7 +618,6 @@
                 android:buttonTint="@android:color/black"
                 android:text="Ya"
                 android:textColor="@android:color/black"
-                android:onClick="onCheckboxClickedDehidrasi"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -611,7 +627,6 @@
                 android:layout_height="wrap_content"
                 android:text="Tidak"
                 android:textColor="@android:color/black"
-                android:onClick="onCheckboxClickedDehidrasi"
                 android:textSize="18sp" />
         </RadioGroup>
 
@@ -624,7 +639,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:onClick="nextPageGejala"
-            android:text="NEXT" />
+            android:text="NEXT"
+            android:background="@drawable/rounded_button"
+            android:textColor="@android:color/white"/>
 
     </LinearLayout>
 </ScrollView>

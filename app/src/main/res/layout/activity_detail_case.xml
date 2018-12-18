@@ -101,6 +101,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Edit Solusi"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_button"
             android:onClick="editSolusi"/>
 
         <Button
@@ -109,6 +112,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="resetSolusi"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_button"
             android:text="Reset" />
 
         <LinearLayout
@@ -126,6 +132,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="updateKasus"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_button"
             android:text="Simpan" />
 
     </LinearLayout>
