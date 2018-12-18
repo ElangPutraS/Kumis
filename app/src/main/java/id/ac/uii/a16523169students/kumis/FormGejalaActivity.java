@@ -31,9 +31,9 @@ public class FormGejalaActivity extends AppCompatActivity {
     private boolean resultBool = false;
     private int success = 0;
     private ProgressDialog processDialog;
-    private String ket, penyebab, obat, pantangan, rekomendasi, id_solusi;
+    private String ket, penyebab, obat, pantangan, rekomendasi, id_solusi, simpanDehi;
     private Toast toast;
-    private RadioGroup radioPanas, radioMual, radioVolume, radioFrek, radioKons, radioBau, radioWarna, radioDarah, radioLain;
+    private RadioGroup radioPanas, radioMual, radioVolume, radioFrek, radioKons, radioBau, radioWarna, radioDarah, radioLain, radioDehi1, radioDehi2, radioDehi3, radioDehi4;
     private RadioButton radioButton;
     private Button btnDisplay;
     private float batas;
@@ -60,7 +60,14 @@ public class FormGejalaActivity extends AppCompatActivity {
         radioWarna = (RadioGroup) findViewById(R.id.radioWarna);
         radioDarah = (RadioGroup) findViewById(R.id.radioDarah);
         radioLain = (RadioGroup) findViewById(R.id.radioLain);
+        radioDehi1 = (RadioGroup) findViewById(R.id.radioDehidrasi);
+        radioDehi2 = (RadioGroup) findViewById(R.id.radioDehidrasiLagi);
+        radioDehi3 = (RadioGroup) findViewById(R.id.radioDehidrasiManeh);
+        radioDehi4 = (RadioGroup) findViewById(R.id.radioDehidrasiAgain);
+
         list = new ArrayList<>();
+
+        simpanDehi = "";
     }
 
     public void nextPageGejala(View view) {
@@ -68,6 +75,7 @@ public class FormGejalaActivity extends AppCompatActivity {
 //        Intent intent = new Intent(this, KeluhanActivity.class);
 //        startActivity(intent);
     }
+
     public void keRevisi(View view) {
         Intent intent = new Intent(this, RevisiActivity.class);
         startActivity(intent);
@@ -110,13 +118,13 @@ public class FormGejalaActivity extends AppCompatActivity {
                 //Panas
                 int selectedId = radioPanas.getCheckedRadioButtonId();
                 // find the radiobutton by returned id
-                if (!(selectedId == -1)){
+                if (!(selectedId == -1)) {
                     radioButton = (RadioButton) findViewById(selectedId);
-                    if (radioButton.getText().equals("Rendah")){
+                    if (radioButton.getText().equals("Rendah")) {
                         list.add("G1");
-                    } else if (radioButton.getText().equals("Sedang")){
+                    } else if (radioButton.getText().equals("Sedang")) {
                         list.add("G2");
-                    } else if (radioButton.getText().equals("Tinggi")){
+                    } else if (radioButton.getText().equals("Tinggi")) {
                         list.add("G3");
                     }
                 }
@@ -124,11 +132,11 @@ public class FormGejalaActivity extends AppCompatActivity {
                 //Mual
                 selectedId = radioMual.getCheckedRadioButtonId();
                 // find the radiobutton by returned id
-                if (!(selectedId == -1)){
+                if (!(selectedId == -1)) {
                     radioButton = (RadioButton) findViewById(selectedId);
-                    if (radioButton.getText().equals("Jarang")){
+                    if (radioButton.getText().equals("Jarang")) {
                         list.add("G4");
-                    } else if (radioButton.getText().equals("Sering")){
+                    } else if (radioButton.getText().equals("Sering")) {
                         list.add("G5");
                     }
                 }
@@ -136,13 +144,13 @@ public class FormGejalaActivity extends AppCompatActivity {
                 //Volume
                 selectedId = radioVolume.getCheckedRadioButtonId();
                 // find the radiobutton by returned id
-                if (!(selectedId == -1)){
+                if (!(selectedId == -1)) {
                     radioButton = (RadioButton) findViewById(selectedId);
-                    if (radioButton.getText().equals("Sedikit")){
+                    if (radioButton.getText().equals("Sedikit")) {
                         list.add("G6");
-                    } else if (radioButton.getText().equals("Sedang")){
+                    } else if (radioButton.getText().equals("Sedang")) {
                         list.add("G7");
-                    } else if (radioButton.getText().equals("Banyak")){
+                    } else if (radioButton.getText().equals("Banyak")) {
                         list.add("G8");
                     }
                 }
@@ -150,13 +158,13 @@ public class FormGejalaActivity extends AppCompatActivity {
                 //frekuensi
                 selectedId = radioFrek.getCheckedRadioButtonId();
                 // find the radiobutton by returned id
-                if (!(selectedId == -1)){
+                if (!(selectedId == -1)) {
                     radioButton = (RadioButton) findViewById(selectedId);
-                    if (radioButton.getText().equals("3-5 kali/hari")){
+                    if (radioButton.getText().equals("3-5 kali/hari")) {
                         list.add("G9");
-                    } else if (radioButton.getText().equals("5-10 kali/hari")){
+                    } else if (radioButton.getText().equals("5-10 kali/hari")) {
                         list.add("G10");
-                    } else if (radioButton.getText().equals(">10 kali/hari")){
+                    } else if (radioButton.getText().equals(">10 kali/hari")) {
                         list.add("G11");
                     }
                 }
@@ -164,13 +172,13 @@ public class FormGejalaActivity extends AppCompatActivity {
                 //konsistensi
                 selectedId = radioKons.getCheckedRadioButtonId();
                 // find the radiobutton by returned id
-                if (!(selectedId == -1)){
+                if (!(selectedId == -1)) {
                     radioButton = (RadioButton) findViewById(selectedId);
-                    if (radioButton.getText().equals("Normal")){
+                    if (radioButton.getText().equals("Normal")) {
                         list.add("G12");
-                    } else if (radioButton.getText().equals("Lembek")){
+                    } else if (radioButton.getText().equals("Lembek")) {
                         list.add("G13");
-                    } else if (radioButton.getText().equals("Cair")){
+                    } else if (radioButton.getText().equals("Cair")) {
                         list.add("G14");
                     }
                 }
@@ -178,13 +186,13 @@ public class FormGejalaActivity extends AppCompatActivity {
                 //Bau
                 selectedId = radioBau.getCheckedRadioButtonId();
                 // find the radiobutton by returned id
-                if (!(selectedId == -1)){
+                if (!(selectedId == -1)) {
                     radioButton = (RadioButton) findViewById(selectedId);
-                    if (radioButton.getText().equals("Langu")){
+                    if (radioButton.getText().equals("Langu")) {
                         list.add("G15");
-                    } else if (radioButton.getText().equals("Busuk")){
+                    } else if (radioButton.getText().equals("Busuk")) {
                         list.add("G16");
-                    } else if (radioButton.getText().equals("Amis Khas")){
+                    } else if (radioButton.getText().equals("Amis Khas")) {
                         list.add("G17");
                     }
                 }
@@ -192,15 +200,15 @@ public class FormGejalaActivity extends AppCompatActivity {
                 //Warna
                 selectedId = radioWarna.getCheckedRadioButtonId();
                 // find the radiobutton by returned id
-                if (!(selectedId == -1)){
+                if (!(selectedId == -1)) {
                     radioButton = (RadioButton) findViewById(selectedId);
-                    if (radioButton.getText().equals("Kuning-Hijau")){
+                    if (radioButton.getText().equals("Kuning-Hijau")) {
                         list.add("G18");
-                    } else if (radioButton.getText().equals("Merah-Hijau")){
+                    } else if (radioButton.getText().equals("Merah-Hijau")) {
                         list.add("G19");
-                    } else if (radioButton.getText().equals("Kehijauan")){
+                    } else if (radioButton.getText().equals("Kehijauan")) {
                         list.add("G20");
-                    } else if (radioButton.getText().equals("Putih Pekat")){
+                    } else if (radioButton.getText().equals("Putih Pekat")) {
                         list.add("G21");
                     }
                 }
@@ -208,11 +216,11 @@ public class FormGejalaActivity extends AppCompatActivity {
                 //Darah
                 selectedId = radioDarah.getCheckedRadioButtonId();
                 // find the radiobutton by returned id
-                if (!(selectedId == -1)){
+                if (!(selectedId == -1)) {
                     radioButton = (RadioButton) findViewById(selectedId);
-                    if (radioButton.getText().equals("Ya")){
+                    if (radioButton.getText().equals("Ya")) {
                         list.add("G22");
-                    } else if (radioButton.getText().equals("Tidak")){
+                    } else if (radioButton.getText().equals("Tidak")) {
                         list.add("G23");
                     }
                 }
@@ -220,54 +228,100 @@ public class FormGejalaActivity extends AppCompatActivity {
                 //lain-lain
                 selectedId = radioLain.getCheckedRadioButtonId();
                 // find the radiobutton by returned id
-                if (!(selectedId == -1)){
+                if (!(selectedId == -1)) {
                     radioButton = (RadioButton) findViewById(selectedId);
-                    if (radioButton.getText().equals("Anoreksia")){
+                    if (radioButton.getText().equals("Anoreksia")) {
                         list.add("G24");
-                    } else if (radioButton.getText().equals("Kejang")){
+                    } else if (radioButton.getText().equals("Kejang")) {
                         list.add("G25");
-                    } else if (radioButton.getText().equals("Sepsis")){
+                    } else if (radioButton.getText().equals("Sepsis")) {
                         list.add("G26");
-                    } else if (radioButton.getText().equals("Meteorismus")){
+                    } else if (radioButton.getText().equals("Meteorismus")) {
                         list.add("G27");
-                    } else if (radioButton.getText().equals("Infeksi")){
+                    } else if (radioButton.getText().equals("Infeksi")) {
                         list.add("G28");
                     }
                 }
 
+                selectedId = radioDehi1.getCheckedRadioButtonId();
+                // find the radiobutton by returned id
+                if (!(selectedId == -1)) {
+                    radioButton = (RadioButton) findViewById(selectedId);
+                    if (radioButton.getText().equals("Ya")) {
+                        simpanDehi += "Ya";
+                    } else if (radioButton.getText().equals("Tidak")) {
+                        simpanDehi += "Tidak";
+                    }
+                }
+
+                selectedId = radioDehi2.getCheckedRadioButtonId();
+                // find the radiobutton by returned id
+                if (!(selectedId == -1)) {
+                    radioButton = (RadioButton) findViewById(selectedId);
+                    if (radioButton.getText().equals("Ya")) {
+                        simpanDehi += "Ya";
+                    } else if (radioButton.getText().equals("Tidak")) {
+                        simpanDehi += "Tidak";
+                    }
+                }
+
+                selectedId = radioDehi3.getCheckedRadioButtonId();
+                // find the radiobutton by returned id
+                if (!(selectedId == -1)) {
+                    radioButton = (RadioButton) findViewById(selectedId);
+                    if (radioButton.getText().equals("Ya")) {
+                        simpanDehi += "Ya";
+                    } else if (radioButton.getText().equals("Normal")) {
+                        simpanDehi += "Normal";
+                    } else if (radioButton.getText().equals("Tidak")) {
+                        simpanDehi += "Tidak";
+                    }
+                }
+
+                selectedId = radioDehi4.getCheckedRadioButtonId();
+                // find the radiobutton by returned id
+                if (!(selectedId == -1)) {
+                    radioButton = (RadioButton) findViewById(selectedId);
+                    if (radioButton.getText().equals("Ya")) {
+                        simpanDehi += "Ya";
+                    } else if (radioButton.getText().equals("Tidak")) {
+                        simpanDehi += "Tidak";
+                    }
+                }
+
                 System.out.println("INI DATA : ");
-                for (int i = 0 ; i < list.size() ; i++) {
+                for (int i = 0; i < list.size(); i++) {
                     System.out.println(list.get(i));
                 }
                 System.out.println();
 
-                if (!list.isEmpty()){
+                if (!list.isEmpty()) {
                     JSONObject resultJsonObject = new JSONObject(response);
                     resultJsonArray = resultJsonObject.getJSONArray("output");
-                    System.out.println("IKILOHHHH : "+resultJsonArray.length() + " " + resultJsonArray.get(0));
+                    System.out.println("IKILOHHHH : " + resultJsonArray.length() + " " + resultJsonArray.get(0));
 
                     batas = 0;
-                    for (int i = 0 ; i < resultJsonArray.length(); i++){
+                    for (int i = 0; i < resultJsonArray.length(); i++) {
                         JSONObject objTabel = resultJsonArray.getJSONObject(i);
                         float jum = 0, jumSama = 0;
-                        System.out.println("Data ke-"+i);
-                        for(int j = 1; j <= 28; j++ ){
-                            String tmp = "G"+j;
-                            System.out.print(tmp+" : "+objTabel.getInt(tmp)+" ");
-                            for (int l = 0 ; l < list.size() ; l++){
-                                if(list.get(l).equals(tmp)){
+                        System.out.println("Data ke-" + i);
+                        for (int j = 1; j <= 28; j++) {
+                            String tmp = "G" + j;
+                            System.out.print(tmp + " : " + objTabel.getInt(tmp) + " ");
+                            for (int l = 0; l < list.size(); l++) {
+                                if (list.get(l).equals(tmp)) {
                                     jumSama += objTabel.getInt(tmp);
-                                    if (i==0){
-                                        apiCase += "&"+tmp+"=1";
+                                    if (i == 0) {
+                                        apiCase += "&" + tmp + "=1";
                                     }
                                 }
                             }
                             jum += objTabel.getInt(tmp);
                         }
-                        float persen = (jumSama/jum)*100;
+                        float persen = (jumSama / jum) * 100;
 
-                        System.out.println("| Jumlah : "+jum+" Jumlah Sama : "+jumSama+" Persen : "+persen+"\n");
-                        if(persen > batas){
+                        System.out.println("| Jumlah : " + jum + " Jumlah Sama : " + jumSama + " Persen : " + persen + "\n");
+                        if (persen > batas) {
                             batas = persen;
                             ket = objTabel.getString("Keterangan");
                             penyebab = objTabel.getString("Penyebab");
@@ -278,9 +332,9 @@ public class FormGejalaActivity extends AppCompatActivity {
                         }
 
                     }
-                    if (batas > 90 && batas < 100){
-                        apiCase += "&id_solusi="+id_solusi;
-                        System.out.println("APINYA : "+apiCase);
+                    if (batas > 90 && batas < 100) {
+                        apiCase += "&id_solusi=" + id_solusi;
+                        System.out.println("APINYA : " + apiCase);
 
                         postDataCase = new HashMap<String, String>();
                         postDataCase.put("HTTP_ACCEPT", "application/json");
@@ -291,7 +345,7 @@ public class FormGejalaActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 success = 0;
                 e.printStackTrace();
-                Toast toast = Toast.makeText(FormGejalaActivity.this,"Tolong cek kembali koneksi internet anda",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(FormGejalaActivity.this, "Tolong cek kembali koneksi internet anda", Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
                 toast.show();
             }
@@ -306,22 +360,22 @@ public class FormGejalaActivity extends AppCompatActivity {
             if (processDialog.isShowing()) {
                 processDialog.dismiss();
             }
-            if (success == 1){
-                if(batas > 90 && !list.isEmpty()){
-                    System.out.println("Keterangan : \n"+ket);
-                    System.out.println("Penyebab : \n"+penyebab);
+            if (success == 1) {
+                if (batas > 90 && !list.isEmpty()) {
+                    System.out.println("Keterangan : \n" + ket);
+                    System.out.println("Penyebab : \n" + penyebab);
 
-                    if(!obat.equals("null")){
-                        System.out.println("Obat Tambahan : \n"+obat);
+                    if (!obat.equals("null")) {
+                        System.out.println("Obat Tambahan : \n" + obat);
                     }
-                    if(!pantangan.equals("null")){
-                        System.out.println("Hindari Makanan : \n"+pantangan);
+                    if (!pantangan.equals("null")) {
+                        System.out.println("Hindari Makanan : \n" + pantangan);
                     }
-                    if(!rekomendasi.equals("null")){
-                        System.out.println("Makanan Rekomendasi : \n"+rekomendasi);
+                    if (!rekomendasi.equals("null")) {
+                        System.out.println("Makanan Rekomendasi : \n" + rekomendasi);
                     }
 
-                    getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+                    getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
                             .edit()
                             .putString(PREF_KET, ket)
                             .putString(PREF_OBAT, obat)
@@ -336,7 +390,70 @@ public class FormGejalaActivity extends AppCompatActivity {
                 Intent intent = new Intent(FormGejalaActivity.this, KeluhanActivity.class);
                 startActivity(intent);
             }
+            if (simpanDehi.equals("YaYaTidakYa")) {
+                System.out.println("Dehidrasi Berat, konsumsi Oralit dengan dosis 100 ml cairan oralit per kg berat badan yang diminum dalam 4-6 jam sekali.");
+            } else if (simpanDehi.equals("TidakTidakYaTidak")) {
+                System.out.println("Dehidrasi Ringan, konsumsi Oralit dengan dosis50 ml cairan per kg berat badan yang diminum dalam 4-6 jam sekali.");
+            } else {
+                System.out.println("Alhamdulillah Anda Sehat");
+            }
         }
 
     }//end of async task
+
+//    private void cekDehidrasi (String yayaya) {
+//        int selectedId = radioDehi1.getCheckedRadioButtonId();
+//        // find the radiobutton by returned id
+//        if (!(selectedId == -1)) {
+//            radioButton = (RadioButton) findViewById(selectedId);
+//            if (radioButton.getText().equals("Ya")) {
+//                simpanDehi += "Ya";
+//            } else if (radioButton.getText().equals("Tidak")) {
+//                simpanDehi += "Tidak";
+//            }
+//        }
+//
+//        selectedId = radioDehi2.getCheckedRadioButtonId();
+//        // find the radiobutton by returned id
+//        if (!(selectedId == -1)) {
+//            radioButton = (RadioButton) findViewById(selectedId);
+//            if (radioButton.getText().equals("Ya")) {
+//                simpanDehi += "Ya";
+//            } else if (radioButton.getText().equals("Tidak")) {
+//                simpanDehi += "Tidak";
+//            }
+//        }
+//
+//        selectedId = radioDehi3.getCheckedRadioButtonId();
+//        // find the radiobutton by returned id
+//        if (!(selectedId == -1)) {
+//            radioButton = (RadioButton) findViewById(selectedId);
+//            if (radioButton.getText().equals("Ya")) {
+//                simpanDehi += "Ya";
+//            } else if (radioButton.getText().equals("Normal")) {
+//                simpanDehi += "Normal";
+//            } else if (radioButton.getText().equals("Tidak")) {
+//                simpanDehi += "Tidak";
+//            }
+//        }
+//
+//        selectedId = radioDehi4.getCheckedRadioButtonId();
+//        // find the radiobutton by returned id
+//        if (!(selectedId == -1)) {
+//            radioButton = (RadioButton) findViewById(selectedId);
+//            if (radioButton.getText().equals("Ya")) {
+//                simpanDehi += "Ya";
+//            } else if (radioButton.getText().equals("Tidak")) {
+//                simpanDehi += "Tidak";
+//            }
+//        }
+//
+//        if (simpanDehi.equals("YaYaTidakYa")) {
+//            System.out.println("Dehidrasi Berat");
+//        } else if (simpanDehi.equals("TidakTidakYaTidak")) {
+//            System.out.println("Dehidrasi Ringan");
+//        } else {
+//            System.out.println("Alhamdulillah Anda Sehat");
+//        }
+//    }
 }
