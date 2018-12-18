@@ -27,18 +27,20 @@ public class BBTBActivity extends AppCompatActivity {
                 tb_user = (EditText) findViewById(R.id.tinggi_pengguna);
                 bb_user = (EditText) findViewById(R.id.berat_pengguna);
 
-//                bbKosong = bb_user.getText().toString();
-//                tbKosong = tb_user.getText().toString();
                 if (tb_user.getText().toString().isEmpty()) {
                     //bbKosong = bb_user.getText().toString();
                     Toast.makeText(BBTBActivity.this, "Mohon Isi Tinggi Badan Anda", Toast.LENGTH_SHORT).show();
                 }
-                if (bb_user.getText().toString().equals("")) {
+                if (bb_user.getText().toString().isEmpty()) {
                     //tbKosong = tb_user.getText().toString();
                     Toast.makeText(BBTBActivity.this, "Mohon Isi Berat Badan Anda", Toast.LENGTH_SHORT).show();
                 }
                 if (tb_user.getText().toString().isEmpty() && bb_user.getText().toString().isEmpty()) {
                     Toast.makeText(BBTBActivity.this, "Mohon Isi Tinggi dan Berat Badan Anda", Toast.LENGTH_SHORT).show();
+                }
+                if (!("").equals(tb_user.getText().toString()) && !("").equals(bb_user.getText().toString())) {
+                    Intent intent = new Intent(BBTBActivity.this, HasilActivity.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -46,9 +48,6 @@ public class BBTBActivity extends AppCompatActivity {
 
 
     public void submitData(View view) {
-        if (tbKosong != null && bbKosong != null) {
-            Intent intent = new Intent(BBTBActivity.this, HasilActivity.class);
-            startActivity(intent);
-        }
+
     }
 }
