@@ -84,6 +84,7 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
     private SwipeRefreshLayout pullToRefreshLayout;
 
     private String mUser, eNama, eEmail, ePass, eCPass;
+    private String dehiBerat, dehiRingan, tdkDehi, simpDehi;
     private EditText editUser, editNama, editEmail, editPass, confPass;
     //textview
     private TextView tNama, tEmail;
@@ -450,16 +451,53 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
 
     }//end of async task
 
-    /*public void nextPageGejala(View view) {
+    public void onCheckboxClickedDehidrasi(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radioDehidrasi1:
+                if (checked)
+                    System.out.println("Ya turun sadar");
+                break;
+            case R.id.radioDehidrasi2:
+                if (checked)
+                    System.out.println("Tidak turun sadar");
+                break;
+            case R.id.radioDehidrasi3:
+                if (checked)
+                    System.out.println("Ya mata cekung");
+                break;
+            case R.id.radioDehidrasi4:
+                if (checked)
+                    System.out.println("Mata tidak cekung");
+                break;
+            case R.id.radioDehidrasi5:
+                if (checked)
+                    System.out.println("Ya haus");
+                break;
+            case R.id.radioDehidrasi6:
+                if (checked)
+                    System.out.println("Merasa normal");
+                break;
+            case R.id.radioDehidrasi7:
+                if (checked)
+                    System.out.println("Tidak haus");
+                break;
+            case R.id.radioDehidrasi8:
+                if (checked)
+                    System.out.println("Ya cubit lama");
+                break;
+            case R.id.radioDehidrasi9:
+                if (checked)
+                    System.out.println("Cubit tidak lama");
+                break;
+        }
+    }
+
+    public void nextPageGejala(View view) {
         Intent intent = new Intent(this, HasilPakarActivity.class);
         startActivity(intent);
-
-        int selectedId = radioGroup1.getCheckedRadioButtonId();
-
-        // find the radiobutton by returned id
-        radioDehidrasiBtn = (RadioButton) findViewById(selectedId);
-
-        Toast.makeText(FormGejalaActivity.this,
-                radioDehidrasiBtn.getText(), Toast.LENGTH_SHORT).show();
-    }*/
+    }
 }
