@@ -31,7 +31,7 @@ public class FormGejalaActivity extends AppCompatActivity {
     private boolean resultBool = false;
     private int success = 0;
     private ProgressDialog processDialog;
-    private String ket, penyebab, obat, pantangan, rekomendasi, id_solusi, simpanDehi;
+    private String ket = "", penyebab = "", obat = "", pantangan = "", rekomendasi = "", id_solusi = "", simpanDehi;
     private Toast toast;
     private RadioGroup radioPanas, radioMual, radioVolume, radioFrek, radioKons, radioBau, radioWarna, radioDarah, radioLain, radioDehi1, radioDehi2, radioDehi3, radioDehi4;
     private RadioButton radioButton;
@@ -44,7 +44,6 @@ public class FormGejalaActivity extends AppCompatActivity {
     private static final String PREF_PENYEBAB = "penyebab";
     private static final String PREF_OBAT = "obat";
     private static final String PREF_PANTANGAN = "pantangan";
-    private static final String PREF_REKOMENDASI = "rekomendasi";
     private static final String PREF_PERSEN = "persen";
 
     @Override
@@ -329,6 +328,8 @@ public class FormGejalaActivity extends AppCompatActivity {
                             pantangan = objTabel.getString("pantangan");
                             rekomendasi = objTabel.getString("rekomendasi");
                             id_solusi = objTabel.getString("id_solusi");
+
+                            System.out.println("ININAHHHHHHH "+ket + " " +penyebab + " "+obat + " "+pantangan + " ");
                         }
 
                     }
@@ -360,10 +361,10 @@ public class FormGejalaActivity extends AppCompatActivity {
             if (processDialog.isShowing()) {
                 processDialog.dismiss();
             }
-            if (success == 1) {
-                if (batas > 90 && !list.isEmpty()) {
-                    System.out.println("Keterangan : \n" + ket);
-                    System.out.println("Penyebab : \n" + penyebab);
+            if (success == 1){
+                if(batas > 90){
+                    System.out.println("Keterangan : \n"+ket);
+                    System.out.println("Penyebab : \n"+penyebab);
 
                     if (!obat.equals("null")) {
                         System.out.println("Obat Tambahan : \n" + obat);
@@ -381,9 +382,8 @@ public class FormGejalaActivity extends AppCompatActivity {
                             .putString(PREF_OBAT, obat)
                             .putString(PREF_PANTANGAN, pantangan)
                             .putString(PREF_PENYEBAB, penyebab)
-                            .putString(PREF_REKOMENDASI, rekomendasi)
                             .putInt(PREF_PERSEN, (int) batas)
-                            .commit();
+                            .apply();
                 } else if (!list.isEmpty())
                     System.out.println("Tidak memenuhi kecocokan minimum pada basis data, mohon konsultasikan ke dokter lewat fitur konsultasi");
 
