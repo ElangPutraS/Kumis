@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -383,6 +384,10 @@ public class DetailCaseActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(DetailCaseActivity.this,"Update berhasil",Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
                 toast.show();
+
+                finish();
+                Intent intent = new Intent(DetailCaseActivity.this, HomeDokterActivity.class);
+                startActivity(intent);
             }
             else {
                 Toast toast = Toast.makeText(DetailCaseActivity.this,"Update gagal, mohon cek koneksi internet anda",Toast.LENGTH_LONG);

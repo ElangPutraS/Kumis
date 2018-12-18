@@ -8,12 +8,14 @@ import android.widget.CheckBox;
 
 public class AlergiActivity extends AppCompatActivity {
     private String alergi;
+    public static final String PREFS_NAME = "CekSehat";
+    public static final String PREF_MAKANAN = "makanan";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alergi);
 
-        alergi = "Baiknya Anda Mengonsumsi : ";
+        alergi = "Baiknya Anda Mengonsumsi : \n\n";
     }
 
     public void onCheckboxClickedAlergi(View view) {
@@ -101,10 +103,15 @@ public class AlergiActivity extends AppCompatActivity {
     }
 
     public void keRiwayat(View view) {
+        getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+                .edit()
+                .putString(PREF_MAKANAN, alergi)
+                .apply();
+
         Intent intent = new Intent(this, BBTBActivity.class);
         startActivity(intent);
 
         System.out.println(alergi);
-        alergi = "Anda Tidak Direkomendasikan Mengonsumsi : ";
+        alergi = "Baiknya Anda Mengonsumsi : \n\n";
     }
 }

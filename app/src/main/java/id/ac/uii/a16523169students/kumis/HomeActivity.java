@@ -61,6 +61,17 @@ public class HomeActivity extends AppCompatActivity
     private static final String PREF_ROLE = "role";
     private static final String PREF_PASSWORD = "password";
 
+    public static final String PREFSS_NAME = "CekSehat";
+    private static final String PREF_KET = "keterangan";
+    private static final String PREF_PENYEBAB = "penyebab";
+    private static final String PREF_OBAT = "obat";
+    private static final String PREF_PANTANGAN = "pantangan";
+    public static final String PREF_VITAMIN = "vitamin";
+    public static final String PREF_MAKANAN = "makanan";
+    public static final String PREF_IDEAL = "ideal";
+    private SharedPreferences prefs;
+    private String ket, penyebab, obat, pantangan, vitamin, makanan, ideal;
+
     private FirebaseListAdapter<ChatMessage> adapter;
     private static final String PREF_SENDER = "sender";
     private String mUsername, mSender, mEmail;
@@ -89,6 +100,15 @@ public class HomeActivity extends AppCompatActivity
 
         //viewflipper
         vf = (ViewFlipper)findViewById(R.id.vf);
+
+        prefs = getSharedPreferences(PREFSS_NAME,MODE_PRIVATE);
+        ket = prefs.getString(PREF_KET, null);
+        penyebab = prefs.getString(PREF_PENYEBAB, null);
+        obat = prefs.getString(PREF_OBAT, null);
+        pantangan = prefs.getString(PREF_PANTANGAN, null);
+        vitamin = prefs.getString(PREF_VITAMIN, null);
+        makanan = prefs.getString(PREF_MAKANAN, null);
+        ideal = prefs.getString(PREF_IDEAL, null);
 
         vf.setDisplayedChild(0);
 
@@ -457,5 +477,27 @@ public class HomeActivity extends AppCompatActivity
     public void cekDiabetes(View view) {
         Intent intent = new Intent(this, FormGejalaActivity.class);
         startActivity(intent);
+    }
+
+    public String sendKet() {
+        return ket;
+    }
+    public String sendPenyebab() {
+        return penyebab;
+    }
+    public String sendPantangan() {
+        return pantangan;
+    }
+    public String sendObat() {
+        return obat;
+    }
+    public String sendVit() {
+        return vitamin;
+    }
+    public String sendRek() {
+        return makanan;
+    }
+    public String sendIde() {
+        return ideal;
     }
 }

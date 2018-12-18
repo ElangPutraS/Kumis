@@ -9,27 +9,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="wrap_content"
         tools:context=".HasilActivity">
-
-        <TextView
-            android:id="@+id/hasilGizi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="Hasil Cek Gizi"
-            android:textColor="@android:color/black"
-            android:textSize="10pt"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <android.support.v7.widget.CardView
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -42,15 +28,15 @@
             android:layout_margin="8dp"
             android:background="@android:color/white"
             android:padding="0dp"
-            app:layout_constraintTop_toBottomOf="@id/hasilGizi"
             card_view:cardCornerRadius="4dp">
 
-            <android.support.constraint.ConstraintLayout
+            <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 tools:context=".HasilActivity">
 
                 <TextView
@@ -63,45 +49,83 @@
                     android:text="Analisis Data :"
                     android:textColor="@android:color/black"
                     android:textSize="8pt"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.027"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/teksAnalisaGizi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="Dari keluhan dan juga data diri yang telah Anda
-                        \nisikan pada halaman sebelumnya, terindikasi
-                        \nbahwa Anda kekurangan"
+                    android:text="Dari data yang anda masukkan kami telah menganalisa bahwa anda mengalami diare sebagai berikut :"
                     android:textColor="@android:color/black"
                     android:textSize="8pt"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/analisaGizi" />
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/dataHasil"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/teksKeteranganDiare"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="28dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="Input Text Here"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18pt"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/teksAnalisaGizi" />
-            </android.support.constraint.ConstraintLayout>
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="8pt" />
+
+                <TextView
+                    android:id="@+id/teksPenyebabDiare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="8pt" />
+
+                <TextView
+                    android:id="@+id/teksObatDiare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="8pt" />
+
+                <TextView
+                    android:id="@+id/teksPantanganDiare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="8pt" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Analisa ini menggunakan metode Case Based Reasoning dengan treshold 80% dan mendapat kecocokan dari kasus sebelumnya sebesar :"
+                    android:textColor="@android:color/black"
+                    android:textSize="8pt"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/teksPersen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:textColor="#555555"
+                    android:textSize="40pt" />
+
+            </LinearLayout>
         </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
@@ -118,11 +142,12 @@
         app:layout_constraintTop_toBottomOf="@id/card_view1"
         card_view:cardCornerRadius="4dp">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
+            android:orientation="vertical"
             android:layout_height="wrap_content"
             tools:context=".HasilActivity">
 
@@ -130,68 +155,46 @@
                 android:id="@+id/rekomenGizi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginEnd="8dp"
-                android:text="Dari diagnosa di atas, kami merekomendasikan
-                    \nAnda untuk mengonsumsi makanan berikut"
+                android:text="Adapun dari data yang anda masukkan, kami merekomendasikan anda untuk mengonsumsi makanan sebagai berikut :"
                 android:textColor="@android:color/black"
                 android:textSize="8pt"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/rekomenMakan"
-                android:layout_width="wrap_content"
+                android:id="@+id/teksRekomendasi"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
-                android:text="Makanan A dan Makanan B"
-                android:textColor="@android:color/holo_green_dark"
-                android:textSize="12pt"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.214"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rekomenGizi" />
-
-            <TextView
-                android:id="@+id/rekomenJangan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="28dp"
-                android:layout_marginEnd="8dp"
-                android:text="Dan kami tidak merekomendasikan
-                    \nAnda untuk mengonsumsi makanan berikut"
+                android:layout_marginTop="16dp"
                 android:textColor="@android:color/black"
-                android:textSize="8pt"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.281"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rekomenMakan" />
+                android:textSize="8pt" />
 
             <TextView
-                android:id="@+id/janganMakan"
-                android:layout_width="wrap_content"
+                android:id="@+id/teksVitamin"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="20dp"
-                android:text="Makanan C dan Makanan D"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="12pt"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.212"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rekomenJangan" />
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="8pt" />
 
-        </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/teksBBTB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="8pt" />
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
         <Button
@@ -209,5 +212,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/card_view2" />
 
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 </ScrollView>

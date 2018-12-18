@@ -36,17 +36,57 @@
             android:label="Edit Profile" />
         <activity android:name=".CekSehatActivity" />
         <activity android:name=".HomeDokterActivity" />
-        <activity android:name=".BBTBActivity" />
-        <activity android:name=".KeluhanActivity" />
+        <activity android:name=".BBTBActivity"
+            android:label="Cek Gizi"
+            android:theme="@style/GeasyStyleBar"
+            android:parentActivityName=".AlergiActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.ac.uii.a16523169students.kumis.AlergiActivity"/>
+        </activity>
+        <activity android:name=".KeluhanActivity"
+            android:label="Cek Gizi"
+            android:theme="@style/GeasyStyleBar"
+            android:parentActivityName=".FormGejalaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.ac.uii.a16523169students.kumis.FormGejalaActivity"/>
+        </activity>
         <activity android:name=".RiwayatPenyakitActivity" />
-        <activity android:name=".AlergiActivity" />
+        <activity android:name=".AlergiActivity"
+            android:label="Cek Gizi"
+            android:theme="@style/GeasyStyleBar"
+            android:parentActivityName=".KeluhanActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.ac.uii.a16523169students.kumis.KeluhanActivity"/>
+        </activity>
         <activity android:name=".HomeActivity" />
-        <activity android:name=".FormGejalaActivity" />
-        <activity android:name=".HasilActivity" />
+        <activity android:name=".FormGejalaActivity"
+            android:label="Cek Gizi"
+            android:theme="@style/GeasyStyleBar"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.ac.uii.a16523169students.kumis.HomeActivity"/>
+        </activity>
+        <activity android:name=".HasilActivity"
+            android:label="Hasil Cek Gizi"
+            android:theme="@style/GeasyStyleBar"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.ac.uii.a16523169students.kumis.HomeActivity" /></activity>
         <activity android:name=".HasilPakarActivity" />
         <activity android:name=".RevisiActivity" />
         <activity android:name=".ListCaseActivity" />
-        <activity android:name=".DetailCaseActivity" android:label="Input Bobot"></activity>
+        <activity android:name=".DetailCaseActivity"
+            android:label="Input Bobot"
+            android:theme="@style/GeasyStyleBar"
+            android:parentActivityName=".HomeDokterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.ac.uii.a16523169students.kumis.HomeDokterActivity" /></activity>
     </application>
 
 </manifest>

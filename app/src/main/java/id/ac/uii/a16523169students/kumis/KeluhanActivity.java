@@ -12,12 +12,14 @@ import java.sql.SQLOutput;
 
 public class KeluhanActivity extends AppCompatActivity {
     private String kurangVit;
+    public static final String PREFS_NAME = "CekSehat";
+    public static final String PREF_VITAMIN = "vitamin";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keluhan);
 
-        kurangVit = "Anda kekurangan Vitamin : ";
+        kurangVit = "Anda kekurangan Vitamin : \n\n";
     }
 
     public void onCheckboxClicked(View view) {
@@ -85,10 +87,14 @@ public class KeluhanActivity extends AppCompatActivity {
     }
 
     public void nextPage(View view) {
+        getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+                .edit()
+                .putString(PREF_VITAMIN, kurangVit)
+                .apply();
         Intent intent = new Intent (this, AlergiActivity.class);
         startActivity(intent);
 
         System.out.println(kurangVit);
-        kurangVit = "Anda Kekurangan Vitamin : ";
+        kurangVit = "Anda Kekurangan Vitamin : \n\n";
     }
 }
