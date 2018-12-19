@@ -91,6 +91,8 @@ public class KeluhanActivity extends AppCompatActivity {
                 .edit()
                 .putString(PREF_VITAMIN, kurangVit)
                 .apply();
+
+        finish();
         Intent intent = new Intent (this, AlergiActivity.class);
         startActivity(intent);
 

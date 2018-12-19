@@ -38,45 +38,26 @@
         <activity android:name=".HomeDokterActivity" />
         <activity android:name=".BBTBActivity"
             android:label="Cek Gizi"
-            android:theme="@style/GeasyStyleBar"
-            android:parentActivityName=".AlergiActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="id.ac.uii.a16523169students.kumis.AlergiActivity"/>
+            android:theme="@style/GeasyStyleBar">
         </activity>
         <activity android:name=".KeluhanActivity"
             android:label="Cek Gizi"
-            android:theme="@style/GeasyStyleBar"
-            android:parentActivityName=".FormGejalaActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="id.ac.uii.a16523169students.kumis.FormGejalaActivity"/>
+            android:theme="@style/GeasyStyleBar">
         </activity>
         <activity android:name=".RiwayatPenyakitActivity" />
         <activity android:name=".AlergiActivity"
             android:label="Cek Gizi"
-            android:theme="@style/GeasyStyleBar"
-            android:parentActivityName=".KeluhanActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="id.ac.uii.a16523169students.kumis.KeluhanActivity"/>
+            android:theme="@style/GeasyStyleBar">
         </activity>
         <activity android:name=".HomeActivity" />
         <activity android:name=".FormGejalaActivity"
             android:label="Cek Gizi"
-            android:theme="@style/GeasyStyleBar"
-            android:parentActivityName=".HomeActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="id.ac.uii.a16523169students.kumis.HomeActivity"/>
+            android:theme="@style/GeasyStyleBar">
         </activity>
         <activity android:name=".HasilActivity"
             android:label="Hasil Cek Gizi"
-            android:theme="@style/GeasyStyleBar"
-            android:parentActivityName=".HomeActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="id.ac.uii.a16523169students.kumis.HomeActivity" /></activity>
+            android:theme="@style/GeasyStyleBar">
+        </activity>
         <activity android:name=".HasilPakarActivity" />
         <activity android:name=".RevisiActivity" />
         <activity android:name=".ListCaseActivity" />

@@ -14,7 +14,7 @@ import android.widget.TextView;
  */
 public class tab_last_over extends Fragment {
 
-    private TextView tKet, tPenyebab, tObat, tPantangan, tVitamin, tMakanan, tIdeal;
+    private TextView tKet, tPenyebab, tObat, tPantangan, tVitamin, tMakanan, tIdeal, tDehi;
 
     public tab_last_over() {
         // Required empty public constructor
@@ -34,6 +34,7 @@ public class tab_last_over extends Fragment {
         tVitamin = (TextView) view.findViewById(R.id.teksVitaminn);
         tMakanan = (TextView) view.findViewById(R.id.teksRekomendasii);
         tIdeal = (TextView) view.findViewById(R.id.teksBBTBB);
+        tDehi = (TextView) view.findViewById(R.id.teksDehii);
 
         tKet.setText(activity.sendKet());
         tPenyebab.setText(activity.sendPenyebab());
@@ -42,6 +43,7 @@ public class tab_last_over extends Fragment {
         tVitamin.setText(activity.sendVit());
         tMakanan.setText(activity.sendRek());
         tIdeal.setText(activity.sendIde());
+        tDehi.setText(activity.sendDehi());
 
         return view;
     }

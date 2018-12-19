@@ -21,11 +21,12 @@ public class HasilActivity extends AppCompatActivity {
     public static final String PREF_VITAMIN = "vitamin";
     public static final String PREF_MAKANAN = "makanan";
     public static final String PREF_IDEAL = "ideal";
+    private static final String PREF_DEHI = "dehidrasi";
     private SharedPreferences pref;
-    private String ket, penyebab, obat, pantangan, vitamin, makanan, ideal;
+    private String ket, penyebab, obat, pantangan, vitamin, makanan, ideal, dehi;
     private int persen;
 
-    private TextView tKet, tPenyebab, tObat, tPantangan, tPersen, tVitamin, tMakanan, tIdeal;
+    private TextView tKet, tPenyebab, tObat, tPantangan, tPersen, tVitamin, tMakanan, tIdeal, tDehi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class HasilActivity extends AppCompatActivity {
         vitamin = pref.getString(PREF_VITAMIN, null);
         makanan = pref.getString(PREF_MAKANAN, null);
         ideal = pref.getString(PREF_IDEAL, null);
+        dehi = pref.getString(PREF_DEHI, null);
 
         tKet = (TextView) findViewById(R.id.teksKeteranganDiare);
         tPenyebab = (TextView) findViewById(R.id.teksPenyebabDiare);
@@ -50,6 +52,7 @@ public class HasilActivity extends AppCompatActivity {
         tVitamin = (TextView) findViewById(R.id.teksVitamin);
         tMakanan = (TextView) findViewById(R.id.teksRekomendasi);
         tIdeal = (TextView) findViewById(R.id.teksBBTB);
+        tDehi = (TextView) findViewById(R.id.teksDehi);
 
         tKet.setText("Keterangan Diare\n\n"+ket);
         tPenyebab.setText("Penyebab Diare\n\n"+penyebab);
@@ -59,15 +62,18 @@ public class HasilActivity extends AppCompatActivity {
         tVitamin.setText(vitamin);
         tMakanan.setText(makanan);
         tIdeal.setText(ideal);
+        tDehi.setText(dehi);
     }
 
     @Override
     public void onBackPressed() {
+        finish();
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 
     public void balikHalaman(View view) {
+        finish();
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }

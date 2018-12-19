@@ -71,8 +71,9 @@ public class HomeActivity extends AppCompatActivity
     public static final String PREF_VITAMIN = "vitamin";
     public static final String PREF_MAKANAN = "makanan";
     public static final String PREF_IDEAL = "ideal";
+    private static final String PREF_DEHI = "dehidrasi";
     private SharedPreferences prefs;
-    private String ket, penyebab, obat, pantangan, vitamin, makanan, ideal;
+    private String ket, penyebab, obat, pantangan, vitamin, makanan, ideal, dehi;
 
     private FirebaseListAdapter<ChatMessage> adapter;
     private static final String PREF_SENDER = "sender";
@@ -113,6 +114,7 @@ public class HomeActivity extends AppCompatActivity
         vitamin = prefs.getString(PREF_VITAMIN, null);
         makanan = prefs.getString(PREF_MAKANAN, null);
         ideal = prefs.getString(PREF_IDEAL, null);
+        dehi = prefs.getString(PREF_DEHI, null);
 
         vf.setDisplayedChild(0);
 
@@ -315,6 +317,7 @@ public class HomeActivity extends AppCompatActivity
                         }
                     });
             this.getSharedPreferences(PREFS_NAME,MODE_PRIVATE).edit().clear().commit();
+            this.getSharedPreferences(PREFSS_NAME,MODE_PRIVATE).edit().clear().commit();
 
         }
 
@@ -503,5 +506,8 @@ public class HomeActivity extends AppCompatActivity
     }
     public String sendIde() {
         return ideal;
+    }
+    public String sendDehi() {
+        return dehi;
     }
 }

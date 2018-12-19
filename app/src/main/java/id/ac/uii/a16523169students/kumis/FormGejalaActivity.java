@@ -45,6 +45,7 @@ public class FormGejalaActivity extends AppCompatActivity {
     private static final String PREF_OBAT = "obat";
     private static final String PREF_PANTANGAN = "pantangan";
     private static final String PREF_PERSEN = "persen";
+    private static final String PREF_DEHI = "dehidrasi";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -333,7 +334,7 @@ public class FormGejalaActivity extends AppCompatActivity {
                         }
 
                     }
-                    if (batas > 90 && batas < 100) {
+                    if (batas > 80 && batas < 100) {
                         apiCase += "&id_solusi=" + id_solusi;
                         System.out.println("APINYA : " + apiCase);
 
@@ -362,7 +363,17 @@ public class FormGejalaActivity extends AppCompatActivity {
                 processDialog.dismiss();
             }
             if (success == 1){
-                if(batas > 90){
+                String dehi = "-";
+
+                if (simpanDehi.equals("YaYaTidakYa")) {
+                    dehi = "Dehidrasi Berat, konsumsi Oralit dengan dosis 100 ml cairan oralit per kg berat badan yang diminum dalam 4-6 jam sekali.";
+                } else if (simpanDehi.equals("TidakTidakYaTidak")) {
+                    dehi = "Dehidrasi Ringan, konsumsi Oralit dengan dosis 50 ml cairan per kg berat badan yang diminum dalam 4-6 jam sekali.";
+                } else {
+                    dehi = "Anda tidak dehidrasi";
+                }
+
+                if(batas > 80){
                     System.out.println("Keterangan : \n"+ket);
                     System.out.println("Penyebab : \n"+penyebab);
 
@@ -383,19 +394,24 @@ public class FormGejalaActivity extends AppCompatActivity {
                             .putString(PREF_PANTANGAN, pantangan)
                             .putString(PREF_PENYEBAB, penyebab)
                             .putInt(PREF_PERSEN, (int) batas)
+                            .putString(PREF_DEHI, dehi)
+                            .apply();
+                } else if (batas < 80 && batas > 0){
+                    getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+                            .edit()
+                            .putString(PREF_KET, "Belum ada kasus yang menemui kecocokan pada kasus ini (persentase kecocokan kurang dari 80%), mohon berkonsultasi ke dokter lewat fitur chat")
+                            .putString(PREF_OBAT, "-")
+                            .putString(PREF_PANTANGAN, "-")
+                            .putString(PREF_PENYEBAB, "-")
+                            .putInt(PREF_PERSEN, 0)
+                            .putString(PREF_DEHI, dehi)
                             .apply();
                 } else if (!list.isEmpty())
                     System.out.println("Tidak memenuhi kecocokan minimum pada basis data, mohon konsultasikan ke dokter lewat fitur konsultasi");
 
+                finish();
                 Intent intent = new Intent(FormGejalaActivity.this, KeluhanActivity.class);
                 startActivity(intent);
-            }
-            if (simpanDehi.equals("YaYaTidakYa")) {
-                System.out.println("Dehidrasi Berat, konsumsi Oralit dengan dosis 100 ml cairan oralit per kg berat badan yang diminum dalam 4-6 jam sekali.");
-            } else if (simpanDehi.equals("TidakTidakYaTidak")) {
-                System.out.println("Dehidrasi Ringan, konsumsi Oralit dengan dosis50 ml cairan per kg berat badan yang diminum dalam 4-6 jam sekali.");
-            } else {
-                System.out.println("Alhamdulillah Anda Sehat");
             }
         }
 
