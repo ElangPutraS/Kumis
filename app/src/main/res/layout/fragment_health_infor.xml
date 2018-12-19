@@ -24,8 +24,145 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:scrollbars="vertical"
         android:layout_below="@id/page" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="200dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginTop="20dp"
+                android:text="Gejala penyebab diare"
+                android:textColor="@color/browser_actions_text_color"
+                android:textSize="7pt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Diare pada anak"
+                android:textColor="@color/browser_actions_text_color"
+                android:textSize="7pt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/img1"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="40dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/imagediare"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/img2"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="40dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/imagediare2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginTop="180dp"
+                android:text="Makanan diare"
+                android:textColor="@color/browser_actions_text_color"
+                android:textSize="7pt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/img3"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/imagediare3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="180dp"
+                android:text="Kenali diare pada anak"
+                android:textColor="@color/browser_actions_text_color"
+                android:textSize="7pt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/img4"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/imagediare4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginEnd="240dp"
+                android:layout_marginTop="340dp"
+                android:text="Menjaga dari diare"
+                android:textColor="@color/browser_actions_text_color"
+                android:textSize="7pt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/img5"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="360dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/imagediare5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginTop="340dp"
+                android:text="Pengobatan diare"
+                android:textColor="@color/browser_actions_text_color"
+                android:textSize="7pt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/img6"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="360dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/imagediare6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 </RelativeLayout>

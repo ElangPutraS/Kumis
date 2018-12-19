@@ -47,6 +47,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -76,6 +78,8 @@ public class HomeActivity extends AppCompatActivity
     private Toast toast;
     //googlesignin
     private GoogleSignInClient mGoogleSignInClient;
+
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,8 +193,8 @@ public class HomeActivity extends AppCompatActivity
         // Use PagerAdapterNav to manage page views in fragments.
         // Each page is represented by its own fragment.
         // This is another example of the adapter pattern.
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pagerNavbar);
-        final PagerAdapterNav adapter = new PagerAdapterNav
+        viewPager = (ViewPager) findViewById(R.id.pagerNavbar);
+        PagerAdapterNav adapter = new PagerAdapterNav
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
 
