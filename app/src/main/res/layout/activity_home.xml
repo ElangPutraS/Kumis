@@ -21,7 +21,6 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
 
-
         <ViewFlipper
             android:id="@+id/vf"
             android:layout_width="match_parent"
