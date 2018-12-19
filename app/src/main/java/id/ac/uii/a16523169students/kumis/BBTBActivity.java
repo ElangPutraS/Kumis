@@ -50,6 +50,7 @@ public class BBTBActivity extends AppCompatActivity {
 
     public void submitData(View view) {
         HasilIdeal();
+        finish();
         Intent intent = new Intent(this, HasilActivity.class);
         startActivity(intent);
     }

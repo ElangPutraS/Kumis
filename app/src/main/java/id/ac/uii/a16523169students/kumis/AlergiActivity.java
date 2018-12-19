@@ -108,6 +108,7 @@ public class AlergiActivity extends AppCompatActivity {
                 .putString(PREF_MAKANAN, alergi)
                 .apply();
 
+        finish();
         Intent intent = new Intent(this, BBTBActivity.class);
         startActivity(intent);
 

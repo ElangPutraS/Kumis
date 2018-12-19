@@ -26,9 +26,9 @@ import java.util.HashMap;
 
 public class DetailCaseActivity extends AppCompatActivity {
     private String apiPathSolusi = "https://kumisproject.000webhostapp.com/RestController.php?view=findCBR";
-    private JSONArray resultJsonArraySolusi, solutionsArray;
-    private boolean resultBool = false, resBool = false;
-    private int successSolusi = 0;
+    private JSONArray resultJsonArraySolusi, solutionsArray, hapusArray;
+    private boolean resultBool = false, resBool = false, resultBoolhps = false;
+    private int successSolusi = 0, successHps;
     private int idKasus = 0;
     private LinearLayout ll;
     private ProgressDialog processDialog;
@@ -115,6 +115,10 @@ public class DetailCaseActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public void hapusKasus(View view) {
+        new HapusKasusTask(this, this).execute();
     }
 
     private class GetSolusiAttr extends AsyncTask<Void, Void, Void> {
@@ -391,6 +395,86 @@ public class DetailCaseActivity extends AppCompatActivity {
             }
             else {
                 Toast toast = Toast.makeText(DetailCaseActivity.this,"Update gagal, mohon cek koneksi internet anda",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
+                toast.show();
+            }
+
+        }
+
+    }//end of async task
+
+    private class HapusKasusTask extends AsyncTask<Void, Void, Void> {
+
+        private Context mContext;
+        private Activity mActivity;
+        String result = "", res = "";
+        HashMap<String, String> postDataParams, postDataPar;
+
+        public HapusKasusTask(Context context, Activity activity) {
+            mContext = context;
+            mActivity = activity;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            processDialog = new ProgressDialog(mContext);
+            processDialog.setMessage("Sedang Memproses ...");
+            processDialog.setCancelable(false);
+            processDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            postDataParams = new HashMap<String, String>();
+            postDataParams.put("HTTP_ACCEPT", "application/json");
+
+            String apiUpdate = "https://kumisproject.000webhostapp.com/RestController.php?view=hapusCase";
+
+            try {
+                JSONObject resultJsonObject = resultJsonArraySolusi.getJSONObject(0);
+                apiUpdate = apiUpdate + "&id="+resultJsonObject.getInt("id");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            System.out.println("HAPUSS : "+ apiUpdate);
+
+            HttpConnectionService serve = new HttpConnectionService();
+            result = serve.sendRequest(apiUpdate, postDataParams);
+
+            try {
+                successSolusi = 1;
+                JSONObject obj = new JSONObject(result);
+                resultBoolhps = obj.getJSONObject("output").getBoolean("acknowledge");
+
+            } catch (JSONException e) {
+                successSolusi = 0;
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            super.onPostExecute(result);
+
+            if (processDialog.isShowing()) {
+                processDialog.dismiss();
+            }
+
+            if (successSolusi==1){
+                Toast toast = Toast.makeText(DetailCaseActivity.this,"Hapus berhasil",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
+                toast.show();
+
+                finish();
+                Intent intent = new Intent(DetailCaseActivity.this, HomeDokterActivity.class);
+                startActivity(intent);
+            }
+            else {
+                Toast toast = Toast.makeText(DetailCaseActivity.this,"Hapus gagal, mohon cek koneksi internet anda",Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 425);
                 toast.show();
             }

@@ -337,6 +337,7 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
             if(vf.getDisplayedChild()!=0){
                 vf.setDisplayedChild(0);
             } else{
+                finish();
                 super.onBackPressed();
             }
         }
