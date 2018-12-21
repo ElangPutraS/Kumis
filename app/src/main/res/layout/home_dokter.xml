@@ -36,6 +36,10 @@
                 layout="@layout/activity_edit_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+            <include
+                layout="@layout/activity_list_case_fix"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </ViewFlipper>
     </android.support.design.widget.AppBarLayout>
 

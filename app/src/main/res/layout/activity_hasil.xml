@@ -109,7 +109,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="Analisa ini menggunakan metode Case Based Reasoning dengan treshold 80% dan mendapat kecocokan dari kasus sebelumnya sebesar :"
+                    android:text="Analisa ini menggunakan metode Case Based Reasoning dengan treshold 40% dan mendapat kecocokan dari kasus sebelumnya sebesar :"
                     android:textColor="@android:color/black"
                     android:textSize="8pt"
                     android:textStyle="bold" />

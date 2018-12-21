@@ -1,155 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".KeluhanActivity">
-
-    <TextView
-        android:id="@+id/cekGizi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Cek Gizi"
-        android:textColor="@android:color/black"
-        android:textSize="10pt"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textKeluhan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Keluhan :"
-        android:textColor="@android:color/black"
-        android:textSize="8pt" />
-
-    <CheckBox
-        android:id="@+id/keluhan1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="onCheckboxClicked"
-        android:text="Gangguan penglihatan" />
-
-    <CheckBox
-        android:id="@+id/keluhan2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="onCheckboxClicked"
-        android:text="Kehilangan nafsu makan" />
-
-    <CheckBox
-        android:id="@+id/keluhan3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="onCheckboxClicked"
-        android:text="Infeksi mulut" />
-
-    <CheckBox
-        android:id="@+id/keluhan4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="onCheckboxClicked"
-        android:text="Gangguan pencernaan" />
-
-    <CheckBox
-        android:id="@+id/keluhan5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="onCheckboxClicked"
-        android:text="Anemia" />
-
-    <CheckBox
-        android:id="@+id/keluhan6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="onCheckboxClicked"
-        android:text="Kelelahan" />
-
-    <CheckBox
-        android:id="@+id/keluhan7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="onCheckboxClicked"
-        android:text="Kesemutan di kaki dan tangan" />
-
-    <CheckBox
-        android:id="@+id/keluhan8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="onCheckboxClicked"
-        android:text="Kulit memar" />
-
-    <CheckBox
-        android:id="@+id/keluhan9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="onCheckboxClicked"
-        android:text="Luka sembuh perlahan" />
-
-    <CheckBox
-        android:id="@+id/keluhan10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="onCheckboxClicked"
-        android:text="Masalah sistem kekebalan" />
-
-    <CheckBox
-        android:id="@+id/keluhan11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="onCheckboxClicked"
-        android:text="Pendarahan" />
-
-    <Button
-        android:id="@+id/button5"
+    <LinearLayout 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:onClick="nextPage"
-        android:textColor="@color/white"
-        android:background="@drawable/rounded_button"
-        android:text="NEXT" />
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        tools:context=".KeluhanActivity">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/cekGizi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Cek Gizi"
+            android:textColor="@android:color/black"
+            android:textSize="10pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textKeluhan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Keluhan :"
+            android:textColor="@android:color/black"
+            android:textSize="8pt" />
+
+        <CheckBox
+            android:id="@+id/keluhan1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:onClick="onCheckboxClicked"
+            android:text="Gangguan penglihatan" />
+
+        <CheckBox
+            android:id="@+id/keluhan2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:onClick="onCheckboxClicked"
+            android:text="Kehilangan nafsu makan" />
+
+        <CheckBox
+            android:id="@+id/keluhan3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:onClick="onCheckboxClicked"
+            android:text="Infeksi mulut" />
+
+        <CheckBox
+            android:id="@+id/keluhan4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:onClick="onCheckboxClicked"
+            android:text="Gangguan pencernaan" />
+
+        <CheckBox
+            android:id="@+id/keluhan5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:onClick="onCheckboxClicked"
+            android:text="Anemia" />
+
+        <CheckBox
+            android:id="@+id/keluhan6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:onClick="onCheckboxClicked"
+            android:text="Kelelahan" />
+
+        <CheckBox
+            android:id="@+id/keluhan7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:onClick="onCheckboxClicked"
+            android:text="Kesemutan di kaki dan tangan" />
+
+        <CheckBox
+            android:id="@+id/keluhan8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:onClick="onCheckboxClicked"
+            android:text="Kulit memar" />
+
+        <CheckBox
+            android:id="@+id/keluhan9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:onClick="onCheckboxClicked"
+            android:text="Luka sembuh perlahan" />
+
+        <CheckBox
+            android:id="@+id/keluhan10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:onClick="onCheckboxClicked"
+            android:text="Masalah sistem kekebalan" />
+
+        <CheckBox
+            android:id="@+id/keluhan11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:onClick="onCheckboxClicked"
+            android:text="Pendarahan" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:onClick="nextPage"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_button"
+            android:text="NEXT" />
+
+    </LinearLayout>
+</ScrollView>

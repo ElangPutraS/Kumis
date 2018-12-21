@@ -11,7 +11,11 @@
         <item
             android:id="@+id/nav_sistem"
             android:icon="@drawable/ic_menu_gizi"
-            android:title="Sistem Pakar Diare" />
+            android:title="Kasus Tak Terbobot" />
+        <item
+            android:id="@+id/nav_sistem_fix"
+            android:icon="@drawable/ic_menu_gizi"
+            android:title="Kasus Terbobot" />
     </group>
 
     <item android:title="Logout">

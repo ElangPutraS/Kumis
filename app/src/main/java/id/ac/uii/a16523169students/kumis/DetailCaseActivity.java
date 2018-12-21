@@ -339,6 +339,15 @@ public class DetailCaseActivity extends AppCompatActivity {
 
                 HttpConnectionService service = new HttpConnectionService();
                 res = service.sendRequest(apiStoreSolusi, postDataPar);
+
+                JSONObject object = null;
+                try {
+                    object = new JSONObject(res);
+                    resBool = object.getJSONObject("output").getBoolean("acknowledge");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
 
             String apiUpdate = "https://kumisproject.000webhostapp.com/RestController.php?view=updateCase";
@@ -365,9 +374,6 @@ public class DetailCaseActivity extends AppCompatActivity {
                 successSolusi = 1;
                 JSONObject obj = new JSONObject(result);
                 resultBool = obj.getJSONObject("output").getBoolean("acknowledge");
-                JSONObject object = new JSONObject(res);
-                resBool = object.getJSONObject("output").getBoolean("acknowledge");
-
             } catch (JSONException e) {
                 successSolusi = 0;
                 e.printStackTrace();

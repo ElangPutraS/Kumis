@@ -55,7 +55,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="76dp"
-            android:text="Cek Indikasi Penyakit Diabetes Anda"
+            android:text="Cek Indikasi Penyakit Diare dan Gizi Anda"
             android:textColor="@android:color/black"
             android:textSize="7pt"
             card_view:layout_constraintEnd_toEndOf="parent"

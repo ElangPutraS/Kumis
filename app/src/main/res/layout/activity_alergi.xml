@@ -38,7 +38,8 @@
             android:layout_marginTop="16dp"
             android:text="Alergi :"
             android:textColor="@android:color/black"
-            android:textSize="8pt" />
+            android:textStyle="bold"
+            android:textSize="10pt" />
 
         <CheckBox
             android:id="@+id/alergi1"

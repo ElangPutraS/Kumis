@@ -154,7 +154,7 @@ public class RegisterSSOActivity extends Activity {
                         .commit();
 
                 finish();
-                Intent intent = new Intent(mContext, Input1Activity.class);
+                Intent intent = new Intent(mContext, HomeActivity.class);
                 startActivity(intent);
             } else {
                 toast = Toast.makeText(mContext,"Registrasi Gagal",Toast.LENGTH_LONG);

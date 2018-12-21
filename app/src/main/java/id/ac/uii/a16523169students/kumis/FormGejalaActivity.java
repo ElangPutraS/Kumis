@@ -36,7 +36,7 @@ public class FormGejalaActivity extends AppCompatActivity {
     private RadioGroup radioPanas, radioMual, radioVolume, radioFrek, radioKons, radioBau, radioWarna, radioDarah, radioLain, radioDehi1, radioDehi2, radioDehi3, radioDehi4;
     private RadioButton radioButton;
     private Button btnDisplay;
-    private float batas;
+    private float batas = 0;
     private List<String> list;
 
     public static final String PREFS_NAME = "CekSehat";
@@ -65,6 +65,7 @@ public class FormGejalaActivity extends AppCompatActivity {
         radioDehi3 = (RadioGroup) findViewById(R.id.radioDehidrasiManeh);
         radioDehi4 = (RadioGroup) findViewById(R.id.radioDehidrasiAgain);
 
+        batas = 0;
         list = new ArrayList<>();
 
         simpanDehi = "";
@@ -334,7 +335,7 @@ public class FormGejalaActivity extends AppCompatActivity {
                         }
 
                     }
-                    if (batas > 80 && batas < 100) {
+                    if (batas >= 40 && batas < 100) {
                         apiCase += "&id_solusi=" + id_solusi;
                         System.out.println("APINYA : " + apiCase);
 
@@ -373,7 +374,7 @@ public class FormGejalaActivity extends AppCompatActivity {
                     dehi = "Anda tidak dehidrasi";
                 }
 
-                if(batas > 80){
+                if(batas >= 40){
                     System.out.println("Keterangan : \n"+ket);
                     System.out.println("Penyebab : \n"+penyebab);
 
@@ -396,17 +397,27 @@ public class FormGejalaActivity extends AppCompatActivity {
                             .putInt(PREF_PERSEN, (int) batas)
                             .putString(PREF_DEHI, dehi)
                             .apply();
-                } else if (batas < 80 && batas > 0){
+                } else if (batas < 40 && batas > 0){
                     getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
                             .edit()
-                            .putString(PREF_KET, "Belum ada kasus yang menemui kecocokan pada kasus ini (persentase kecocokan kurang dari 80%), mohon berkonsultasi ke dokter lewat fitur chat")
+                            .putString(PREF_KET, "Belum ada kasus yang menemui kecocokan pada kasus ini (persentase kecocokan kurang dari 40%), mohon berkonsultasi ke dokter lewat fitur chat")
                             .putString(PREF_OBAT, "-")
                             .putString(PREF_PANTANGAN, "-")
                             .putString(PREF_PENYEBAB, "-")
                             .putInt(PREF_PERSEN, 0)
                             .putString(PREF_DEHI, dehi)
                             .apply();
-                } else if (!list.isEmpty())
+                } else if (batas == 0){
+                    getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+                            .edit()
+                            .putString(PREF_KET, "Anda tidak terindikasi diare")
+                            .putString(PREF_OBAT, "-")
+                            .putString(PREF_PANTANGAN, "-")
+                            .putString(PREF_PENYEBAB, "-")
+                            .putInt(PREF_PERSEN, 0)
+                            .putString(PREF_DEHI, dehi)
+                            .apply();
+                }  else if (!list.isEmpty())
                     System.out.println("Tidak memenuhi kecocokan minimum pada basis data, mohon konsultasikan ke dokter lewat fitur konsultasi");
 
                 finish();

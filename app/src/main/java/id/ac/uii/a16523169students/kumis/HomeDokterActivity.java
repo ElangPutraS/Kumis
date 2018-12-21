@@ -77,17 +77,18 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
 
     //CBR
     private String apiPathCBR = "https://kumisproject.000webhostapp.com/RestController.php?view=tabelCBR";
-    private JSONArray resultJsonArrayCBR;
+    private JSONArray resultJsonArrayCBR, resultJsonArrayCBRFix;
     private boolean resultBoolCBR = false;
-    private int successCBR = 0;
+    private int successCBR = 0, successCBRFix = 0;
     private ArrayList<Cases> m_partsCBR = new ArrayList<Cases>();
-    private JSONObject resultJsonObjectCBR;
+    private ArrayList<Cases> m_partsCBRFix = new ArrayList<Cases>();
+    private JSONObject resultJsonObjectCBR, resultJsonObjectCBRFix;
 
-    private Runnable viewPartsCBR;
-    private ListCaseAdapter m_adapterCBR;
-    private TextView emptlist;
-    private ListView listOfCases;
-    private SwipeRefreshLayout pullToRefreshLayoutCBR;
+    private Runnable viewPartsCBR, viewPartsCBRFix;
+    private ListCaseAdapter m_adapterCBR, m_adapterCBRFix;
+    private TextView emptlist, emptlistt;
+    private ListView listOfCases, listOfCasesFix;
+    private SwipeRefreshLayout pullToRefreshLayoutCBR, pullToRefreshLayoutCBRFix;
 
     // declare class variables
     private ArrayList<ChatMessage> m_parts = new ArrayList<ChatMessage>();
@@ -201,6 +202,20 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
         emptlist.setVisibility(View.INVISIBLE);
 
         m_adapterCBR = new ListCaseAdapter(this, R.layout.caselist, m_partsCBR);
+
+        //Keperluan CBR Fix
+
+        //listview
+        listOfCasesFix = (ListView) findViewById(R.id.list_of_fix_cases);
+
+        //refresh layout
+        pullToRefreshLayoutCBRFix = (SwipeRefreshLayout) findViewById(R.id.activity_list_case_fix);
+        pullToRefreshLayoutCBRFix.setOnRefreshListener(this);
+
+        emptlistt = (TextView) findViewById(R.id.emptylisttt);
+        emptlistt.setVisibility(View.INVISIBLE);
+
+        m_adapterCBRFix = new ListCaseAdapter(this, R.layout.caselist, m_partsCBRFix);
     }
 
     @Override
@@ -375,7 +390,9 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
             vf.setDisplayedChild(2);
         } else if (id == R.id.nav_sistem) {
             vf.setDisplayedChild(1);
-        }  else if (id == R.id.nav_logout) {
+        }  else if (id == R.id.nav_sistem_fix) {
+            vf.setDisplayedChild(3);
+        } else if (id == R.id.nav_logout) {
             mGoogleSignInClient.signOut()
                     .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                         @Override
@@ -555,30 +572,60 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
                     JSONObject objTabel = resultJsonArrayCBR.getJSONObject(i);
                     bGejala = 0;
                     System.out.println("Data ke-"+i);
-                    for(int j = 1; j <= 28; j++ ){
-                        String tmp = "G"+j;
-                        if(objTabel.getInt(tmp) > 0){
-                            bGejala += 1;
+                    if (objTabel.getString("terbobot").equals("0")){
+                        for(int j = 1; j <= 28; j++ ){
+                            String tmp = "G"+j;
+                            if(objTabel.getInt(tmp) > 0){
+                                bGejala += 1;
+                            }
                         }
-                    }
-                    ket = objTabel.getString("Keterangan");
-                    penyebab = objTabel.getString("Penyebab");
-                    idKasus = objTabel.getInt("id");
+                        ket = objTabel.getString("Keterangan");
+                        penyebab = objTabel.getString("Penyebab");
+                        idKasus = objTabel.getInt("id");
 
-                    m_partsCBR.add(new Cases(bGejala, ket, penyebab, idKasus));
-                    System.out.println("ININAHH ANJAYYYY "+bGejala+" "+ket+" "+penyebab);
+                        m_partsCBR.add(new Cases(bGejala, ket, penyebab, idKasus));
+                    } else if (objTabel.getString("terbobot").equals("1")){
+                        for(int j = 1; j <= 28; j++ ){
+                            String tmp = "G"+j;
+                            if(objTabel.getInt(tmp) > 0){
+                                bGejala += 1;
+                            }
+                        }
+                        ket = objTabel.getString("Keterangan");
+                        penyebab = objTabel.getString("Penyebab");
+                        idKasus = objTabel.getInt("id");
+
+                        m_partsCBRFix.add(new Cases(bGejala, ket, penyebab, idKasus));
+                    }
                 }
                 m_adapterCBR = new ListCaseAdapter(HomeDokterActivity.this, R.layout.caselist, m_partsCBR);
+                m_adapterCBRFix = new ListCaseAdapter(HomeDokterActivity.this, R.layout.caselist, m_partsCBRFix);
                 if (m_adapterCBR == null)
                     emptlist.setVisibility(View.VISIBLE);
                 else
                     listOfCases.setAdapter(m_adapterCBR);
+                if (m_adapterCBRFix == null)
+                    emptlistt.setVisibility(View.VISIBLE);
+                else
+                    listOfCasesFix.setAdapter(m_adapterCBRFix);
                 // display the list.
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
             listOfCases.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    Intent i = new Intent(HomeDokterActivity.this, DetailCaseActivity.class);
+                    TextView idKasus = (TextView) view.findViewById(R.id.idKasus);
+                    String idcase = idKasus.getText().toString();
+                    System.out.println("IKIIII : "+idcase.substring(12,idcase.length()));
+                    i.putExtra("ID_KASUS", Integer.parseInt(idcase.substring(12,idcase.length())));
+                    startActivity(i);
+                }
+            });
+            listOfCasesFix.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -597,7 +644,7 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
 
         private Context mContext;
         private Activity mActivity;
-        String response = "";
+        String response = "", responseFix = "";
         HashMap<String, String> postDataParams;
 
         public ServiceCBRAsyncTask(Context context, Activity activity) {
@@ -615,7 +662,6 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
             postDataParams = new HashMap<String, String>();
             postDataParams.put("HTTP_ACCEPT", "application/json");
 
-
             HttpConnectionService service = new HttpConnectionService();
             response = service.sendRequest(apiPathCBR, postDataParams);
 
@@ -625,6 +671,7 @@ public class HomeDokterActivity extends AppCompatActivity implements SwipeRefres
                 resultJsonArrayCBR = resultJsonObjectCBR.getJSONArray("output");
 
                 m_partsCBR.clear();
+                m_partsCBRFix.clear();
                 // here we are defining our runnable thread.
                 viewPartsCBR = new Runnable(){
                     public void run(){
